@@ -1,18 +1,25 @@
 //CardList.js - componente contenedor (lista todas las cards que se muestran en pantalla)
-
+//import CardItem
 import CardItem from '../Card/Card';
 import { Grid } from '@mui/material';
 
-const CardList = () => {
+//le agreo una prop "title" para poder reutilizarlo y que cada vez que llame a un CardList le puedo cambiar el nombre y personalizarlo
+const CardList = ({title}) => {
     return (
         <>
-        <h2>PRODUCTOS RECOMENDADOS</h2>
+        <h2>{title}</h2>
         <Grid container>
             <Grid item md={3}>
                 <CardItem title={'Kokedama 1'} price={500} image={'ticsi-logo.png'}/>
             </Grid>
             <Grid item md={3}>
                 <CardItem title='Kokedama 2' price={1500} image={'ticsi-logo.png'}/>
+            </Grid>
+            <Grid item md={3}>
+                <CardItem title='Kokedama 3' price={5500} image={'ticsi-logo.png'}/>
+            </Grid>
+            <Grid item md={3}>
+                <CardItem title='Kokedama 4' price={2500} image={'ticsi-logo.png'}/>
             </Grid>
         </Grid>        
         </>

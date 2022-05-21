@@ -3,10 +3,15 @@
 //import CSS
 import './NavBar.css';
 
+//import CardWidget en NavBar
+import CartWidget from '../CartWidget/CartWidget';
+
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
+
+
 
 //Upper CamelCase: se utiliza para componentes (eso lo hace diferente a un tag de HTML)
 const NavBar = () => {
@@ -34,7 +39,8 @@ const NavBar = () => {
                             <button>CUIDADOS Y TIPS</button>
                         </li>
                     </ul>
-                <Button color="inherit">Login</Button>
+                <Button color="inherit">BUSCAR</Button>
+                <CartWidget></CartWidget>
                 </Toolbar>
             </AppBar>
         </>

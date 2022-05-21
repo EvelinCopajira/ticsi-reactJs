@@ -12,7 +12,8 @@ function App() {
     <div className="App">
       <NavBar />
       <div className='general-container'>
-        <CardList></CardList>
+        <CardList title={'PRODUCTOS DESTACADOS'}></CardList>
+        <CardList title={'PRODUCTOS EN OFERTA'}></CardList>
       </div>
     </div>
   );

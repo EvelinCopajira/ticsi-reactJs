@@ -1,7 +1,8 @@
 //Card.js - componente de presentacion
-
+//import CSS
 import './Card.css'
 
+//import mui styles
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { Button } from '@mui/material';
