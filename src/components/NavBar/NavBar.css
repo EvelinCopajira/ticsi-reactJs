@@ -1,0 +1,23 @@
+.toolbar-nav{
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-logo {
+    width: 100px;
+}
+
+.container-logo img {
+    width: 100%;
+}
+
+.navbar-list { 
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.navbar-list li {
+    display: flex;
+}
