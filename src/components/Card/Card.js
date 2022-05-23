@@ -7,6 +7,9 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { Button } from '@mui/material';
 
+//import ItemCount
+import ItemCount from '../ItemCount/ItemCount';
+
 
 //funcional component - estructura basica de un componente funcional    
 const CardItem = ({image, price, title}) => {
@@ -21,7 +24,8 @@ const CardItem = ({image, price, title}) => {
                     </div>
                     <p>{title}</p>
                     <span>$ {price}</span>
-                    <Button variant={'contained'}>DETALLE</Button>
+                    <ItemCount></ItemCount>
+                    <Button variant={'contained'}>VER DETALLE</Button>
                 </div>
             </CardContent>
         </Card>

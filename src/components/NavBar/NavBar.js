@@ -48,10 +48,10 @@ const NavBar = () => {
     )
 }
 
-const dateFormat = console.log("formato de fechas");
+//const dateFormat = console.log("formato de fechas");
 
-const dateFormat2 = console.log("formato de fechas");
+//const dateFormat2 = console.log("formato de fechas");
 
 //exporto el componente a App.js - solo puede haber un "export default" por archivo
 export default NavBar
-export {dateFormat, dateFormat2} //cuando tengo que exportar varios componentes
+//export {dateFormat, dateFormat2} //cuando tengo que exportar varios componentes
