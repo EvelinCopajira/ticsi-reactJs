@@ -4,7 +4,7 @@ import NavBar from './components/NavBar/NavBar';
 
 //import {dateFormat, dateFormat2} from './components/NavBar/NavBar'
 
-import CardList from './components/CardList/CardList';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 function App() {
   return (
@@ -12,8 +12,8 @@ function App() {
     <div className="App">
       <NavBar />
       <div className='general-container'>
-        <CardList title={'PRODUCTOS DESTACADOS'}></CardList>
-        <CardList title={'PRODUCTOS EN OFERTA'}></CardList>
+        <ItemListContainer title={'PRODUCTOS DESTACADOS'}></ItemListContainer>
+        <ItemListContainer title={'PRODUCTOS EN OFERTA'}></ItemListContainer>
       </div>
     </div>
   );

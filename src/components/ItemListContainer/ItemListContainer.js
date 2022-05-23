@@ -1,10 +1,10 @@
-//CardList.js - componente contenedor (lista todas las cards que se muestran en pantalla)
+//ItemListContainer.js - componente contenedor (lista todas las cards que se muestran en pantalla)
 //import CardItem
 import CardItem from '../Card/Card';
 import { Grid } from '@mui/material';
 
-//le agreo una prop "title" para poder reutilizarlo y que cada vez que llame a un CardList le puedo cambiar el nombre y personalizarlo
-const CardList = ({title}) => {
+//le agreo una prop "title" para poder reutilizarlo y que cada vez que llame a un ItemListContainer le puedo cambiar el nombre y personalizarlo
+const ItemListContainer = ({title}) => {
     return (
         <>
         <h2>{title}</h2>
@@ -27,4 +27,4 @@ const CardList = ({title}) => {
     )
 }
 
-export default CardList 
+export default ItemListContainer 
