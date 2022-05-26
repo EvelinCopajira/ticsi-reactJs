@@ -1,6 +1,6 @@
-//Card.js - componente de presentacion
+//Item.js - componente de presentacion
 //import CSS
-import './Card.css'
+import './Item.css'
 
 //import mui styles
 import Card from '@mui/material/Card';

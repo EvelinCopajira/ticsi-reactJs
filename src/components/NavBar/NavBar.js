@@ -3,7 +3,7 @@
 //import CSS
 import './NavBar.css';
 
-//import CardWidget en NavBar
+//import CartWidget en NavBar
 import CartWidget from '../CartWidget/CartWidget';
 
 import * as React from 'react';
