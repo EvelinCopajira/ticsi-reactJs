@@ -10,10 +10,10 @@ import { Button } from '@mui/material';
 //import ItemCount
 import ItemCount from '../ItemCount/ItemCount';
 
-
 //funcional component - estructura basica de un componente funcional    
 const CardItem = ({image, price, title, stock}) => {
 
+    //lo que muestro con el onAdd, que toma el parametro count que selecciona el usuario
     const onAdd = (count) => {
         console.log(`Se agregaron ${count} productos al carrito`)
     }

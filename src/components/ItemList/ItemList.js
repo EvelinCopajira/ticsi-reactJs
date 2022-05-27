@@ -6,7 +6,7 @@ import CardItem from '../Item/Item';
 
 import { Grid } from '@mui/material';
 
-
+//.map para iterar sobre los productos en la API y asi obtener los productos del []
 const ItemList = ({title, products}) => {
     return (
         <>

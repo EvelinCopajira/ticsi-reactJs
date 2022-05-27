@@ -5,7 +5,6 @@ import ItemList from '../ItemList/ItemList';
 
 import { useState, useEffect } from 'react';
 
-//le agreo una prop "title" para poder reutilizarlo y que cada vez que llame a un ItemListContainer le puedo cambiar el nombre y personalizarlo
 const ItemListContainer = () => {
 
     //setProducts tiene la respuesta de nuestra promise

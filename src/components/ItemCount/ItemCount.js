@@ -4,8 +4,7 @@ import './ItemCount.css';
 import { Button } from '@mui/material';
 import {useState} from 'react';
 
-
-
+//contador, toma stock de la API y onAdd que muestra en consola cuando doy click al boton
 const ItemCount = ({stock, onAdd}) => {
     const [count, setCount] = useState (1); 
 
