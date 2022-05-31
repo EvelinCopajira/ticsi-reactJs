@@ -27,16 +27,16 @@ const NavBar = () => {
                     </div>
                     <ul className='navbar-list'>
                         <li>
-                            <button>INICIO</button>
+                            <Button variant='text' color='inherit'>INICIO</Button>
                         </li>
                         <li>
-                            <button>PRODUCTOS</button>
+                            <Button variant='text' color='inherit'>PRODUCTOS</Button>
                         </li>
                         <li>
-                            <button>CONTACTO</button>
+                            <Button variant='text' color='inherit'>CONTACTO</Button>
                         </li>
                         <li>
-                            <button>CUIDADOS Y TIPS</button>
+                            <Button variant='text' color='inherit'>CUIDADOS Y TIPS</Button>
                         </li>
                     </ul>
                 <Button color="inherit">BUSCAR</Button>
