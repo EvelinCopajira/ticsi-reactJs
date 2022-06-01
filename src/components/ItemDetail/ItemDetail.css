@@ -1,0 +1,13 @@
+.img-detail-container {
+    width: 300px;
+}
+
+.img-detail-container img {
+    width: 100%;
+}
+
+
+.detail-container {
+    display: flex;
+    justify-content: space-evenly;
+}
