@@ -1,7 +1,7 @@
 //import ItemList
 import ItemList from '../ItemList/ItemList';
 
-//import ProductsMock
+//import ProductsMock - array de productos
 import productsTicsi from '../../utils/ProductsMock';
 
 import { useState, useEffect } from 'react';

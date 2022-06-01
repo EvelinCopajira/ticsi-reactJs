@@ -13,8 +13,10 @@ function App() {
         <ItemListContainer>
         </ItemListContainer>
       </div>
-      <ItemDetailContainer>
-      </ItemDetailContainer> 
+      <div>
+        <ItemDetailContainer>
+        </ItemDetailContainer> 
+      </div>
     </div>
   );
 }

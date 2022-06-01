@@ -5,9 +5,9 @@ import { Button } from '@mui/material';
 import {useState} from 'react';
 
 //contador, toma stock de la API y onAdd que muestra en consola cuando doy click al boton
-const ItemCount = ({stock, onAdd}) => {
+const ItemCount = ({stock, onAdd, product}) => {
     const [count, setCount] = useState (1); 
-
+    
     const addCount = () => {
         setCount(count + 1)
     };
@@ -24,9 +24,9 @@ const ItemCount = ({stock, onAdd}) => {
             <p>{count}</p>
             <Button onClick={addCount} disabled = {count >= stock}>+</Button>
         </div>
-        <div>
-            <Button className='btn-buy' variant='contained' onClick={(() => onAdd (count))}>COMPRAR</Button>
-        </div>        
+        <div className='btn-card'>
+            <Button variant='outlined' onClick={(() => onAdd (count))}>COMPRAR</Button>     
+        </div>
         </>
     )
 

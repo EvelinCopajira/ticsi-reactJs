@@ -28,7 +28,9 @@ const CardItem = ({image, price, title, stock}) => {
                     <p>{title}</p>
                     <span>$ {price}</span>
                     <ItemCount onAdd= {onAdd} stock={stock}></ItemCount>
-                    <Button variant={'contained'}>VER DETALLE</Button>
+                    <div className='btn-card'>
+                        <Button className='btn-detail' variant='outlined'>VER DETALLE</Button>
+                    </div>
                 </div>
             </CardContent>
         </Card>
