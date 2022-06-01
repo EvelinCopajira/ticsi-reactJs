@@ -5,7 +5,7 @@ const productsTicsi = [
         title: 'Kokedama 1',
         description:'',
         price: 1500,
-        image: 'ticsi-logo.png',
+        image: 'kokedama1.jpg',
         stock: 2
     },
     {
@@ -13,7 +13,7 @@ const productsTicsi = [
         title: 'Kokedama 2',
         description:'',
         price: 500,
-        image: 'ticsi-logo.png',
+        image: 'kokedama1.jpg',
         stock: 3
     },
     {
@@ -21,7 +21,7 @@ const productsTicsi = [
         title: 'Kokedama 3',
         description:'',
         price: 2500,
-        image: 'ticsi-logo.png',
+        image: 'kokedama1.jpg',
         stock: 10
     },
     {
@@ -29,18 +29,18 @@ const productsTicsi = [
         title: 'Kokedama 4',
         description:'',
         price: 800,
-        image: 'ticsi-logo.png',
+        image: 'kokedama1.jpg',
         stock: 1
     }
 ];
 
 const productTicsi1 = {
-    id: 3,
-    title: 'Kokedama 3',
-    description:'',
-    price: 2500,
-    image: 'ticsi-logo.png',
-    stock: 10
+    id: 2,
+    title: 'Kokedama 2',
+    description:'lorem lorem lorem lorem',
+    price: 500,
+    image: 'kokedama1.jpg',
+    stock: 3
 }
 
 export default productsTicsi;
