@@ -24,7 +24,7 @@ const NavBar = () => {
                 <Toolbar className='toolbar-nav'>
                     <div className='container-logo'>
                             <Link to={'/'}>
-                                <img src='./ticsi-logo.png' alt='imagen-logo'></img>
+                                <img src='/ticsi-logo.png' alt='imagen-logo'></img>
                             </Link>
                     </div>
                     <ul className='navbar-list'>

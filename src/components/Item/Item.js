@@ -32,7 +32,7 @@ const CardItem = ({image, price, title, stock, id}) => {
                     <ItemCount onAdd= {onAdd} stock={stock}></ItemCount>
                     <div className='btn-card'>
                         <Button className='btn-detail' variant='outlined'>
-                            <Link to={`/products/${id}`}>VER DETALLE</Link>  
+                            <Link to={`/item/${id}`}>VER DETALLE</Link>  
                         </Button>
                     </div>
                 </div>
