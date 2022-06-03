@@ -1,22 +1,29 @@
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
 
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+
+import Home from './pages/Home';
+import Contact from './pages/Contact';
+import Products from './pages/Products';
+import NotFound from './pages/NotFound';
+import Detail from './pages/Detail';
+
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 function App() {
   return (
     //JSX
     <div className="App">
-      <NavBar />
-      <div className='general-container'>
-        <ItemListContainer>
-        </ItemListContainer>
-      </div>
-      <div>
-        <ItemDetailContainer>
-        </ItemDetailContainer> 
-      </div>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<Home />}></Route>
+          <Route path='/products' element={<Products />}></Route>
+          <Route path='/item/:id' element={<Detail />}></Route>
+          <Route path='/contact' element={<Contact />}></Route>
+          <Route path='*' element={<NotFound />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
