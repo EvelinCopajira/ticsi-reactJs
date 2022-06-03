@@ -1,3 +1,5 @@
+import ItemListContainer from "../components/ItemListContainer/ItemListContainer";
+
 const Home = () => {
     return (
         <div className='general-container'>
@@ -6,3 +8,5 @@ const Home = () => {
         </div>
     )
 }
+
+export default Home;
