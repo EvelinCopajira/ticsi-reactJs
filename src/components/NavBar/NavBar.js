@@ -1,5 +1,3 @@
-//a partir de la version 17 no es necesario importar react, ya lo asume como componente
-
 //import CSS
 import './NavBar.css';
 
@@ -10,6 +8,8 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
+
+import { Link } from 'react-router-dom';
 
 
 
@@ -23,20 +23,30 @@ const NavBar = () => {
             <AppBar position="static">
                 <Toolbar className='toolbar-nav'>
                     <div className='container-logo'>
-                        <img src='./ticsi-logo.png' alt='imagen-logo'/>
+                            <Link to={'/'}>
+                                <img src='./ticsi-logo.png' alt='imagen-logo'></img>
+                            </Link>
                     </div>
                     <ul className='navbar-list'>
                         <li>
-                            <Button variant='text' color='inherit'>INICIO</Button>
+                            <Button variant='text' color='inherit'>
+                                <Link to='/'>INICIO</Link>
+                            </Button>
                         </li>
                         <li>
-                            <Button variant='text' color='inherit'>PRODUCTOS</Button>
+                            <Button variant='text' color='inherit'>
+                                <Link to='/products'>PRODUCTOS</Link>  
+                            </Button>
                         </li>
                         <li>
-                            <Button variant='text' color='inherit'>CONTACTO</Button>
+                            <Button variant='text' color='inherit'>
+                                <Link to='/contact'>CONTACTO</Link>  
+                            </Button>
                         </li>
                         <li>
-                            <Button variant='text' color='inherit'>CUIDADOS Y TIPS</Button>
+                            <Button variant='text' color='inherit'>
+                                CUIDADOS Y TIPS  
+                            </Button>
                         </li>
                     </ul>
                 <Button color="inherit">BUSCAR</Button>

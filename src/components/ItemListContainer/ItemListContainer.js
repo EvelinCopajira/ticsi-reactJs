@@ -32,14 +32,13 @@ const ItemListContainer = () => {
             //setTimeout para la "espera" de 2 min
             setTimeout (() => {
                 resolve (productsTicsi)
-            }, 2000)
+            }, 0)
         })
     }
 
     return (
         <div>
-            <ItemList title={'PRODUCTOS DESTACADOS'} products={products}></ItemList>
-            {/* <ItemList title={'PRODUCTOS EN OFERTA'} products={products}></ItemList> */}
+            <ItemList title={'PRODUCTOS'} products={products}></ItemList>
         </div>
     )
 

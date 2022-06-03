@@ -6,13 +6,15 @@ import './Item.css'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 //import ItemCount
 import ItemCount from '../ItemCount/ItemCount';
 
-//funcional component - estructura basica de un componente funcional    
-const CardItem = ({image, price, title, stock}) => {
 
+//funcional component - estructura basica de un componente funcional    
+const CardItem = ({image, price, title, stock, id}) => {
+    console.log('product id: ', id);
     //lo que muestro con el onAdd, que toma el parametro count que selecciona el usuario
     const onAdd = (count) => {
         console.log(`Se agregaron ${count} productos al carrito`)
@@ -29,7 +31,9 @@ const CardItem = ({image, price, title, stock}) => {
                     <span>$ {price}</span>
                     <ItemCount onAdd= {onAdd} stock={stock}></ItemCount>
                     <div className='btn-card'>
-                        <Button className='btn-detail' variant='outlined'>VER DETALLE</Button>
+                        <Button className='btn-detail' variant='outlined'>
+                            <Link to={`/products/${id}`}>VER DETALLE</Link>  
+                        </Button>
                     </div>
                 </div>
             </CardContent>
