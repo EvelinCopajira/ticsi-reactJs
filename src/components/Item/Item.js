@@ -25,7 +25,7 @@ const CardItem = ({image, price, title, stock, id}) => {
             <CardContent>
                 <div className="card-item">
                     <div>
-                        <img src={`./${image}`} alt='imagen-producto' />
+                        <img src={`/${image}`} alt='imagen-producto' />
                     </div>
                     <p>{title}</p>
                     <span>$ {price}</span>

@@ -11,14 +11,9 @@ import Button from '@mui/material/Button';
 
 import { Link } from 'react-router-dom';
 
-
-
-//Upper CamelCase: se utiliza para componentes (eso lo hace diferente a un tag de HTML)
 const NavBar = () => {
-    //para ser un componente la funcion tiene que retornar algo
     return (
         //retorna un JSX (HTML)
-        //etiqueta fragment para englobar todo en un elemento - si tengo que agregarle clases es todo dentro del fragment con className
         <> 
             <AppBar position="static">
                 <Toolbar className='toolbar-nav'>
