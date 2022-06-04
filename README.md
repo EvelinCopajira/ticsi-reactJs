@@ -14,6 +14,3 @@ Por medio de promises simulé el llamado a la API, que contiene la base de datos
 
 Desde la sección "PRODUCTOS" vas a ver el total de productos, se puede ingresar al detalle de cada uno y con otro boton volver al total de productos. 
 Se puede filtrar el listado de productos por categorías para traer únicamente los productos que le interesen al cliente.
-
-
-El link del video de la app es:
