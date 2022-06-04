@@ -2,7 +2,6 @@
 import ItemDetail from "../ItemDetail/ItemDetail";
 
 //import ProductsMock - solo importo el objeto detalle
-import { productTicsi1 } from "../../utils/ProductsMock";
 import productsTicsi from "../../utils/ProductsMock";
 
 import { useState, useEffect } from "react";
@@ -27,27 +26,6 @@ const ItemDetailContainer = () => {
         }
     },[])
     
-    // useEffect (() => {
-    //     getItem()
-    //     .then( (res) => {
-    //         setProduct (res)
-    //     })
-    //     .catch( (err) => {
-    //         console.log('Cath fallo la llamada: ', err);
-    //     })        
-    //     .finally( () => {            
-    //     }) 
-    // }, [])
-
-
-    // const getItem = () => {
-    //     return new Promise ((resolve, reject) => {            
-    //         setTimeout (() => {
-    //             resolve (productTicsi1)
-    //         }, 0)
-    //     })
-    // }
-
     //genero una prop nueva 'product' y le paso mi estado con la info 
     return(
         <div>
