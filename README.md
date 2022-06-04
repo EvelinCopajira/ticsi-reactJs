@@ -2,7 +2,7 @@ TICSI es un ecommerce de plantas, específicamente de kokedamas y cactus.
 
 El proyecto todavía está en desarrollo, hasta ahora utilicé sólo la libreria Material UI, desde donde fui importando los diferentes componentes que le dieron funcionalidad a la app.
 
-No inclui ninguna dependencia por fuera de las trabajadas en clase.
+No inclui ninguna dependencia por fuera de las trabajadas en clase, por ahora se utiliza sólo MUI (iconos de MUI) y react-router-dom
 
 Utilicé los siguientes hooks: 
 - useEffect para hacer llamados a componentes sólo en el momento de su inicialización

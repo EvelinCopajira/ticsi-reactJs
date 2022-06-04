@@ -42,7 +42,7 @@ const productsTicsi = [
         description:'',
         category: 'cactus',
         price: 2500,
-        image: 'kokedama1.jpg',
+        image: 'cactus1.jpg',
         stock: 5
     },
     {
@@ -50,8 +50,8 @@ const productsTicsi = [
         title: 'Cactus 2',
         description:'',
         category: 'cactus',
-        price: 2500,
-        image: 'kokedama1.jpg',
+        price: 2000,
+        image: 'cactus1.jpg',
         stock: 3
     },
 ];
