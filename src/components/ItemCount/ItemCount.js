@@ -2,31 +2,30 @@
 import './ItemCount.css';
 
 import { Button } from '@mui/material';
-import {useState} from 'react';
 
-//contador, toma stock de la API y onAdd que muestra en consola cuando doy click al boton
-const ItemCount = ({stock, onAdd, product}) => {
-    const [count, setCount] = useState (1); 
+//contador, valida con el stock de la API y actualiza con botones +/-. Recibe por props la cantidad y actualización de cantidad desde ItemDetal
+const ItemCount = ({stock, quantity, actualizarCantidad, setShowButton}) => {
     
     const addCount = () => {
-        setCount(count + 1)
+        actualizarCantidad(quantity + 1)
     };
     
     const removeCount = () => {
-        setCount(count - 1)
+        actualizarCantidad(quantity - 1)
     };
     
-
+    //a traves de onClick le paso info al padre que es ItemDetail para que obtenga la cantidad y actualice setQuantity
     return (
         <>
         <div className='count-item'>
-            <Button onClick={removeCount} disabled = {count === 0}>-</Button>
-            <p>{count}</p>
-            <Button onClick={addCount} disabled = {count >= stock}>+</Button>
+            <Button onClick={removeCount} disabled = {quantity === 0}>-</Button>
+            <p>{quantity}</p>
+            <Button onClick={addCount} disabled = {quantity >= stock}>+</Button>
         </div>
-        <div className='btn-card'>
-            <Button variant='outlined' onClick={(() => onAdd (count))}>COMPRAR</Button>     
-        </div>
+        <Button variant='outlined' onClick={() => setShowButton(true)}>
+            AGREGAR AL CARRITO
+        </Button>
+
         </>
     )
 
