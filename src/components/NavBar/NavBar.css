@@ -1,7 +1,7 @@
 .toolbar-nav{
-    background-color: black;
     display: flex;
     justify-content: space-between;
+    color: wheat;
 }
 
 .container-logo {
@@ -21,3 +21,18 @@
 .navbar-list li {
     display: flex;
 }
+
+.dark-mode {
+    background: black !important;
+}
+
+.light-mode {
+    background: #2e7d32 !important;
+}
+
+.link-menu {
+    text-decoration: none;
+    color: wheat;
+
+}
+
