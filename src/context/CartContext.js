@@ -10,7 +10,6 @@ const CartProvider = ({children}) => {
 
     //fn para que no duplique los productos en el array, que vaya acumulando a medida que agregue
     const addProductToCart = (product) => {
-
         //.find para encontrar si el producto ya se encuentra en carrito no duplicar iguala los id
         let isInCart = cartListItems.find(cartItem => cartItem.id === product.id)
 

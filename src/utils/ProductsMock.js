@@ -56,14 +56,5 @@ const productsTicsi = [
     },
 ];
 
-const productTicsi1 = {
-    id: 2,
-    title: 'Kokedama 2',
-    description:'lorem lorem lorem lorem',
-    price: 500,
-    image: 'kokedama1.jpg',
-    stock: 3
-}
 
 export default productsTicsi;
-export {productTicsi1}

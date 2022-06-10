@@ -16,7 +16,7 @@ const ItemDetailContainer = () => {
     const productFilter = productsTicsi.find((product) => {
         return product.id == id
     })
-
+    
     //useEffect para filtrar el producto por el id  clickeado - .find
     useEffect (() => {  
         if (productFilter === undefined) {
@@ -25,7 +25,7 @@ const ItemDetailContainer = () => {
             setProduct(productFilter)
         }
     },[])
-    
+
     //genero una prop nueva 'product' y le paso mi estado con la info 
     return(
         <div>
