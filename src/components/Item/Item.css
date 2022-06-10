@@ -6,6 +6,7 @@
 .card-item {
     display: flex;
     flex-direction: column;
+    color: wheat;
 }
 
 .card-item p {
@@ -20,14 +21,27 @@
     font-size: 14px;
 }
 
-.btn-detail {
-    width: auto;
-}
-
 .btn-card {
     width: auto;
+    display: flex;
 }
 
 .grid-card {
     max-width: none;
+}
+
+.btn-detail {
+    color: wheat;
+    text-decoration: none;
+    border: solid 1px wheat;
+    padding: 5px;
+    border-radius: 30px;
+}
+
+.btn-detail span {
+    color: wheat !important;
+    text-decoration: none;
+    border: solid 1px wheat;
+    padding: 5px;
+    border-radius: 30px;
 }
