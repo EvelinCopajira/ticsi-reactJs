@@ -12,25 +12,35 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
 import { Link } from 'react-router-dom';
-import { useState } from 'react'
+import { useState } from 'react';
+
+//el ThemeContext me permite acceder a la info que paso por value al provider
+import { ThemeContext } from '../../context/ThemeContext';
+//hook para utilizar la informacion que tenemos en el context 
+import { useContext } from 'react';
+import ThemeSwitch from './ThemeSwitch';
 
 
 const NavBar = () => {
+    //genero una constate y le paso el context desde el que traigo la info
+    const { darkTheme } = useContext(ThemeContext);
+    
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
-      setAnchorEl(event.currentTarget);
+        setAnchorEl(event.currentTarget);
     };
     const handleClose = () => {
-      setAnchorEl(null);
+        setAnchorEl(null);
     };
 
     const categories = ["kokedamas", "cactus"];
-
+    console.log('state context navbar: ', darkTheme);
+    
     return (
         //retorna un JSX (HTML)
 
-        <AppBar position="static">
+        <AppBar position="fixed" className={`header-success ${darkTheme === true ? 'dark-mode' : 'light-mode'} `}>
             <Toolbar className='toolbar-nav'>
                 <div className='container-logo'>
                         <Link to={'/'}>
@@ -40,7 +50,7 @@ const NavBar = () => {
                 <ul className='navbar-list'>
                     <li>
                         <Button variant='text' color='inherit'>
-                            <Link to='/'>INICIO</Link>
+                            <Link to='/' className='link-menu'>INICIO</Link>
                         </Button>
                     </li>
                     <li>
@@ -73,7 +83,7 @@ const NavBar = () => {
                     </li>
                     <li>
                         <Button variant='text' color='inherit'>
-                            <Link to='/contact'>CONTACTO</Link>  
+                            <Link to='/contact' className='link-menu'>CONTACTO</Link>  
                         </Button>
                     </li>
                     <li>
@@ -83,14 +93,13 @@ const NavBar = () => {
                     </li>
                 </ul>
             <Button color="inherit">BUSCAR</Button>
+            <ThemeSwitch></ThemeSwitch>
             <CartWidget></CartWidget>
             </Toolbar>
         </AppBar>
 
     )
 }
-
-
 
 //exporto el componente a App.js - solo puede haber un "export default" por archivo
 export default NavBar

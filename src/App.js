@@ -10,24 +10,27 @@ import ProductsList from './pages/ProductsList';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import ThemeProvider from './context/ThemeContext';
+import CartProvider from './context/CartContext';
 
 function App() {
   return (
     //JSX
     <div className="App">
-      <ThemeProvider>
-        <BrowserRouter>
-          <NavBar />
-          <Routes>
-            <Route path='/' element={<Home />}></Route>
-            <Route path='/products' element={<Products />}></Route>
-            <Route path='/items/:category' element={<ProductsList/>}></Route>
-            <Route path='/item/:id' element={<Detail />}></Route>
-            <Route path='/contact' element={<Contact />}></Route>
-            <Route path='*' element={<NotFound />}></Route>
-          </Routes>
-        </BrowserRouter>
-      </ThemeProvider>
+      <CartProvider>
+        <ThemeProvider>
+          <BrowserRouter>
+            <NavBar />
+            <Routes>
+              <Route path='/' element={<Home />}></Route>
+              <Route path='/products' element={<Products />}></Route>
+              <Route path='/items/:category' element={<ProductsList/>}></Route>
+              <Route path='/item/:id' element={<Detail />}></Route>
+              <Route path='/contact' element={<Contact />}></Route>
+              <Route path='*' element={<NotFound />}></Route>
+            </Routes>
+          </BrowserRouter>
+        </ThemeProvider>
+      </CartProvider>
     </div>
   );
 }
