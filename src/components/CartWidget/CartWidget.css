@@ -1,0 +1,21 @@
+.container-cart {
+}
+
+.container-cart-list div {
+    width: 10%;
+}
+
+.container-cart-list div img {
+    width: 100%;
+}
+
+.container-cart-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.btn-delete-item {
+    background: none;
+    border: 0;
+}
