@@ -8,11 +8,18 @@ import CardContent from '@mui/material/CardContent';
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 
+import { useContext } from 'react';
+import { ThemeContext } from '../../context/ThemeContext';
+import { CartContext } from '../../context/CartContext';
+
 //funcional component - estructura basica de un componente funcional    
 const CardItem = ({image, price, title, stock, id}) => {
 
+    const {darkTheme} = useContext(ThemeContext);
+    const {addProductToCart} = useContext(CartContext)
+
     return (
-        <Card sx={{ minWidth: 275 }}>
+        <Card sx={{ minWidth: 275 }} className={`card-item-container ${darkTheme === true ? 'dark-mode' : 'light-mode'} `}>
             <CardContent>
                 <div className="card-item">
                     <div>
@@ -21,8 +28,11 @@ const CardItem = ({image, price, title, stock, id}) => {
                     <p>{title}</p>
                     <span>$ {price}</span>
                     <div className='btn-card'>
-                        <Button className='btn-detail' variant='outlined'>
-                            <Link to={`/item/${id}`}>VER DETALLE</Link>  
+                        <Button>
+                            <Link to={`/item/${id}`} className='btn-detail'>VER DETALLE</Link>  
+                        </Button>
+                        <Button className='btn-detail' onClick={()=> addProductToCart({image, price, title, stock, id})}>
+                            AGREGAR AL CARRITO
                         </Button>
                     </div>
                 </div>

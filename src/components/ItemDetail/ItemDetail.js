@@ -26,7 +26,7 @@ const ItemDetail = ({title, product}) => {
                 <h3>{product.title}</h3>
                 <p>{product.description}</p>
                 <p>${product.price}</p>
-                {showButton == false ?
+                {showButton === false ?
                 <ItemCount stock={product.stock} 
                     quantity={quantity}
                     setShowButton={setShowButton}
@@ -36,11 +36,14 @@ const ItemDetail = ({title, product}) => {
                 <Button variant='outlined'>
                     <Link to={'/cart'}>TERMINAR COMPRA</Link>                    
                 </Button>}
-
-                <Button variant='outlined'>
-                    <Link to={'/products'}>VOLVER A PRODUCTOS</Link>
-                </Button>
+                {/* <Button variant='outlined' onClick={()=> addProductToCart({product})}>
+                    COMPRAR             
+                </Button> */}
             </div>
+            <Button variant='outlined'>
+                    <Link to={'/products'}>VOLVER A PRODUCTOS</Link>
+            </Button>
+
         </div>
         </>
     )
