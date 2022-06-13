@@ -1,30 +1,36 @@
 //import CSS
 import './NavBar.css';
 
-//import CartWidget en NavBar
+//import componente: CartWidget en NavBar
 import CartWidget from '../CartWidget/CartWidget';
 
-import * as React from 'react';
+import ThemeSwitch from './ThemeSwitch';
+
+//import mui styles
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
+//import react-router-dom
 import { Link } from 'react-router-dom';
+
+//import react
 import { useState } from 'react';
+import * as React from 'react';
+
+//hook para utilizar la informacion que tenemos en el context 
+import { useContext } from 'react';
 
 //el ThemeContext me permite acceder a la info que paso por value al provider
 import { ThemeContext } from '../../context/ThemeContext';
-//hook para utilizar la informacion que tenemos en el context 
-import { useContext } from 'react';
-import ThemeSwitch from './ThemeSwitch';
 
 
 const NavBar = () => {
-    //genero una constate y le paso el context desde el que traigo la info
+    //genero una constante y le paso el context desde el que traigo la info
     const { darkTheme } = useContext(ThemeContext);
-    
+
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -34,18 +40,15 @@ const NavBar = () => {
         setAnchorEl(null);
     };
 
-    const categories = ["kokedamas", "cactus"];
-    console.log('state context navbar: ', darkTheme);
-    
+    const categories = ["KOKEDAMAS", "CACTUS"];    
     return (
         //retorna un JSX (HTML)
-
         <AppBar position="fixed" className={`header-success ${darkTheme === true ? 'dark-mode' : 'light-mode'} `}>
             <Toolbar className='toolbar-nav'>
                 <div className='container-logo'>
-                        <Link to={'/'}>
-                            <img src='/ticsi-logo.png' alt='imagen-logo'></img>
-                        </Link>
+                    <Link to={'/'}>
+                        <img src='/ticsi-logo.png' alt='imagen-logo'></img>
+                    </Link>
                 </div>
                 <ul className='navbar-list'>
                     <li>
@@ -95,7 +98,7 @@ const NavBar = () => {
             <Button color="inherit">BUSCAR</Button>
             <ThemeSwitch></ThemeSwitch>
             <CartWidget></CartWidget>
-            </Toolbar>
+            </Toolbar>  
         </AppBar>
 
     )

@@ -7,8 +7,10 @@ import NotFound from './pages/NotFound';
 import Detail from './pages/Detail';
 import ProductsList from './pages/ProductsList';
 
+//import react-router-dom
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
+//import context
 import ThemeProvider from './context/ThemeContext';
 import CartProvider from './context/CartContext';
 
