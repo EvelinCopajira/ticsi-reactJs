@@ -6,6 +6,7 @@ import Products from './pages/Products';
 import NotFound from './pages/NotFound';
 import Detail from './pages/Detail';
 import ProductsList from './pages/ProductsList';
+import Cart from './pages/Cart';
 
 //import react-router-dom
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
@@ -29,6 +30,7 @@ function App() {
               <Route path='/item/:id' element={<Detail />}></Route>
               <Route path='/contact' element={<Contact />}></Route>
               <Route path='*' element={<NotFound />}></Route>
+              <Route path='/cart' element= {<Cart />}></Route>
             </Routes>
           </BrowserRouter>
         </ThemeProvider>
