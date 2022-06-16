@@ -9,26 +9,51 @@ const CartProvider = ({children}) => {
     //state para que se guarden todos los productos que vaya agregando al carrito - nuevo array
     const [cartListItems, setCartListItems] = useState([]);
 
-    //ADD ITEM - fn para que al agregar productos, los unifique y sume cantidad
+    const [changeQuantity, setChangeQuantity] = useState(0)
+
+    //ADD ITEM - fn para que al agregar productos, los unifique (si hay mas con el mismo id) y sume cantidad tanto de products(donde no hay count y se suma con la cantidad de clicks) como de item detail que puedo elegir cantidad
     const addProductToCart = (product, quantity) => {
-        //.find para encontrar si el objeto ya esta en carrito, si no existe lo crea y trae el producto y a cantidad, si el id es el mismo de uno existente los acumula
-        let productInCart = cartListItems.find(cartItem => cartItem.productData.id === product.id)
-        if (productInCart == undefined) {
-            const newProductInCart = {
-                productData: product,
-                quantity: quantity
+        let productInCart = cartListItems.find(cartItem => cartItem.id === product.id)
+
+        //fn .includes booleano si el producto lo agrego de HOME por primera vez false, si ya hice varios clicks true
+        let isInCart = cartListItems.includes(productInCart)
+
+        if (isInCart) {
+            productInCart.quantity += quantity
+        } else {
+            if(!isInCart) {
+                product.quantity = quantity
+                setCartListItems(cartListItems => [...cartListItems, product])
             }
-            return setCartListItems(cartListItems => [...cartListItems, newProductInCart])
-        }
-        productInCart.quantity += quantity
-        return cartListItems
+        }       
+    }
+    
+    const cartItemsQuantity = () => {
+        return cartListItems.reduce((acc, item) => (acc + item.quantity), 0)
+    }
+
+    const totalCartPrice = () => {
+        return cartListItems.reduce((acc, item) => ( acc + (item.quantity * item.price) ), 0);
     }
 
     //REMOVE ITEM - fn para remover productos del [] y darle funcionalidad al btn eliminar
-    const removeProduct = (id) => {
-        const copyCartList = [...cartListItems];
-        const newCartList = copyCartList.filter((cartListItem) => cartListItem.productData.id !== id);
-        setCartListItems(newCartList)
+    // const removeProduct = (id) => {
+    //     const copyCartList = [...cartListItems];
+    //     const newCartList = copyCartList.filter((cartListItem) => cartListItem.id !== id);
+    //     setCartListItems(newCartList)
+    // }
+
+    const removeProduct = (itemId) => {
+        const productoRemove = cartListItems.find(item => item.id === itemId);
+        let indexOfItem = cartListItems.indexOf(productoRemove);
+        cartListItems.splice((indexOfItem), 1)
+        setCartListItems(cartListItems => [...cartListItems])
+    }
+
+    const changeQuantityOfProduct = (itemId, value) => {
+        const itemToReduceQuantity = cartListItems.find(item => item.id === itemId);
+        itemToReduceQuantity.quantity = itemToReduceQuantity.quantity + value 
+        return setChangeQuantity(changeQuantity + value)     
     }
 
     //CLEAR - fn para vaciar el carrito por completo
@@ -36,7 +61,7 @@ const CartProvider = ({children}) => {
         setCartListItems([]);
     }
 
-    //fn para llevar la c
+    //fn para llevar la cantidad al Icon Cart del NavBar
     const getAmountOfProducts = () => {
         return cartListItems.length;
     }
@@ -46,7 +71,10 @@ const CartProvider = ({children}) => {
         addProductToCart,
         removeProduct,
         getAmountOfProducts,
-        clearCart
+        clearCart,
+        cartItemsQuantity,
+        totalCartPrice,
+        changeQuantityOfProduct
     }
 
     return(

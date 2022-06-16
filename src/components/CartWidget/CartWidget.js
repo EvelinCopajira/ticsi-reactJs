@@ -67,8 +67,7 @@ const CartWidget = () => {
             >
 
                 <div className='container-cart'>
-                    {cartListItems.map((cartItem) => {
-                        const item = cartItem.productData
+                    {cartListItems.map((item) => {
                         return(
                             <>
                             <div className='container-cart-list' key={item.id}>
@@ -77,7 +76,7 @@ const CartWidget = () => {
                                 </div>
                                 <p>{item.title}</p>
                                 <span>$ {item.price}</span>
-                                <p>CANTIDAD: {cartItem.quantity}</p>
+                                <p>CANTIDAD: {item.quantity}</p>
                             <button className='btn-delete-item' >
                                 <DeleteIcon onClick={() => removeProduct(item.id)}/>
                             </button>

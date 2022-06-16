@@ -79,8 +79,8 @@ const NavBar = () => {
                             'aria-labelledby': 'basic-button',
                             }}
                         >
-                            {categories.map( (cat) => {
-                                return <MenuItem onClick={handleClose}><Link to={`/items/${cat}`}>{cat}</Link></MenuItem>
+                            {categories.map((cat) => {
+                                return(<MenuItem onClick={handleClose} key={cat.id}><Link to={`/items/${cat}`}>{cat}</Link></MenuItem>) 
                             })}
                         </Menu>
                     </li>
