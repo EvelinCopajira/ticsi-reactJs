@@ -40,7 +40,7 @@ const NavBar = () => {
         setAnchorEl(null);
     };
 
-    const categories = ["KOKEDAMAS", "CACTUS"];    
+    const categories = ["kokedamas", "cactus"];    
     return (
         //retorna un JSX (HTML)
         <AppBar position="fixed" className={`header-success ${darkTheme === true ? 'dark-mode' : 'light-mode'} `}>

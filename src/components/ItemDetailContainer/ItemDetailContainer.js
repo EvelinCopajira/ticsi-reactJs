@@ -1,36 +1,37 @@
 //import componente: ItemDetail.js
 import ItemDetail from "../ItemDetail/ItemDetail";
 
-//import ProductsMock
-import productsTicsi from "../../utils/ProductsMock";
-
 //import react
 import { useState, useEffect } from "react";
 
 //import react-router-dom
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+
+//import firebase
+import {doc, getDoc} from 'firebase/firestore'
+import dataBase from "../../utils/firebaseConfig";
 
 const ItemDetailContainer = () => {    
     const {id} = useParams();
 
-    //const navigate pare redireccionar si no se encuentra la ruta
-    const navigate = useNavigate()
-
-    const [product, setProduct] = useState({});
-    
-    //.find para buscar el producto que tenga el mismo id que el clickeado
-    const productFilter = productsTicsi.find((product) => {
-        return product.id == id
-    })
-    
+    const [product, setProduct] = useState({}); 
+        
     //useEffect para filtrar el producto por el id  clickeado - .find
     useEffect (() => {  
-        if (productFilter === undefined) {
-            navigate('/NotFound')
-        } else {
-            setProduct(productFilter)
-        }
-    },[])
+        getProduct()
+        .then((prod) => {
+            console.log('respuesta get item: ', prod);
+            setProduct(prod)
+        })
+    },[id])
+
+    const getProduct = async() => {
+        const docRef = doc(dataBase, 'productsTicsi', id);
+        const docSnaptshop = await getDoc(docRef);
+        let product = docSnaptshop.data()
+        product.id = docSnaptshop.id
+        return product
+    }
 
     return(
         <div>
