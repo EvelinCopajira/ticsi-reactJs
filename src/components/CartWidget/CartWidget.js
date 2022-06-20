@@ -46,7 +46,7 @@ const CartWidget = () => {
     return (
         <div className='cart-container'>
             <IconButton aria-label="cart">
-                <StyledBadge badgeContent={amountOfProducts} color='primary'>
+                <StyledBadge badgeContent={amountOfProducts === 0 ? '0' : amountOfProducts} color='primary'>
                 <ShoppingCartIcon 
                     aria-controls={open ? 'basic-menu' : undefined}
                     aria-haspopup="true"
@@ -84,9 +84,7 @@ const CartWidget = () => {
                             </>
                         )
                     })}
-                    <button onClick={() => clearCart()}>
-                        VACIAR CARRITO
-                    </button>
+                    {cartListItems.length === 0 ? (<p>No hay productos en el carrito</p>) : <button onClick={() => clearCart()}>VACIAR CARRITO</button>}
                 </div>
             </Menu>
         </div>

@@ -9,7 +9,7 @@ const CartProvider = ({children}) => {
     //state para que se guarden todos los productos que vaya agregando al carrito - nuevo array
     const [cartListItems, setCartListItems] = useState([]);
 
-    const [changeQuantity, setChangeQuantity] = useState(0)
+    //const [changeQuantity, setChangeQuantity] = useState(0)
 
     //ADD ITEM - fn para que al agregar productos, los unifique (si hay mas con el mismo id) y sume cantidad tanto de products(donde no hay count y se suma con la cantidad de clicks) como de item detail que puedo elegir cantidad
     const addProductToCart = (product, quantity) => {
@@ -21,21 +21,20 @@ const CartProvider = ({children}) => {
         if (isInCart) {
             productInCart.quantity += quantity
         } else {
-            if(!isInCart) {
-                product.quantity = quantity
-                setCartListItems(cartListItems => [...cartListItems, product])
-            }
+            product.quantity = quantity
+            setCartListItems(cartListItems => [...cartListItems, product])
         }       
     }
     
-    const cartItemsQuantity = () => {
-        return cartListItems.reduce((acc, item) => (acc + item.quantity), 0)
-    }
-
+    //fn .reduce para acumular las cantidades ingresadas de todos los productos, por qty de clicks o por cantidad seleccionada desde el count, para devolver un unico valor final, inicializando en 0
+    // const cartItemsQuantity = () => {
+    //     return cartListItems.reduce((acc, item) => (acc + item.quantity), 0)
+    // }
+    
+    //fn .reduce para que al acumulado de cantidades lo multiplique por el precio de cada item (pxq) y de el total del carrito, inicializado en 0
     const totalCartPrice = () => {
         return cartListItems.reduce((acc, item) => ( acc + (item.quantity * item.price) ), 0);
-    }
-
+    }    
     //REMOVE ITEM - fn para remover productos del [] y darle funcionalidad al btn eliminar
     // const removeProduct = (id) => {
     //     const copyCartList = [...cartListItems];
@@ -43,18 +42,23 @@ const CartProvider = ({children}) => {
     //     setCartListItems(newCartList)
     // }
 
+    //REMOVE ITEM - fn .find para encontrar el producto que tenga el mismo id que itemId
     const removeProduct = (itemId) => {
-        const productoRemove = cartListItems.find(item => item.id === itemId);
-        let indexOfItem = cartListItems.indexOf(productoRemove);
+        const productToRemove = cartListItems.find(item => item.id === itemId);
+
+        //fn .indexOf para traer el indice del producto a remover (el que tenia el mismo id) y guardarlo en una variable
+        let indexOfItem = cartListItems.indexOf(productToRemove);
+        
+        //fn .splice para que elimine 1 elemento del nuevo array [indexOfItem], que sera el que coincida con el id que estoy buscando
         cartListItems.splice((indexOfItem), 1)
         setCartListItems(cartListItems => [...cartListItems])
     }
 
-    const changeQuantityOfProduct = (itemId, value) => {
-        const itemToReduceQuantity = cartListItems.find(item => item.id === itemId);
-        itemToReduceQuantity.quantity = itemToReduceQuantity.quantity + value 
-        return setChangeQuantity(changeQuantity + value)     
-    }
+    // const changeQuantityOfProduct = (itemId, value) => {
+    //     const itemToReduceQuantity = cartListItems.find(item => item.id === itemId);
+    //     itemToReduceQuantity.quantity = itemToReduceQuantity.quantity + value 
+    //     return setChangeQuantity(changeQuantity + value)     
+    // }
 
     //CLEAR - fn para vaciar el carrito por completo
     const clearCart = () => {
@@ -72,9 +76,9 @@ const CartProvider = ({children}) => {
         removeProduct,
         getAmountOfProducts,
         clearCart,
-        cartItemsQuantity,
+        //cartItemsQuantity,
         totalCartPrice,
-        changeQuantityOfProduct
+        //changeQuantityOfProduct
     }
 
     return(

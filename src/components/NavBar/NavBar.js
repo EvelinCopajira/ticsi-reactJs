@@ -80,7 +80,7 @@ const NavBar = () => {
                             }}
                         >
                             {categories.map((cat) => {
-                                return(<MenuItem onClick={handleClose} key={cat.id}><Link to={`/items/${cat}`}>{cat}</Link></MenuItem>) 
+                                return(<MenuItem onClick={handleClose}><Link to={`/items/${cat}`}>{cat}</Link></MenuItem>) 
                             })}
                         </Menu>
                     </li>
