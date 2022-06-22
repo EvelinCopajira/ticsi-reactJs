@@ -9,7 +9,6 @@ import {collection, getDocs} from 'firebase/firestore';
 import dataBase from '../../utils/firebaseConfig';  
 
 const ItemListContainer = () => {
-    //setProducts tiene la respuesta de nuestra promise
     const [products, setProducts] = useState ([]);    
     const {category} = useParams();
     
