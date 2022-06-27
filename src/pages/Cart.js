@@ -8,63 +8,69 @@ import { Button } from '@mui/material';
 import Modal from '../components/Modal/Modal'
 import TextField from '@mui/material/TextField';
 
-
 //import firestore
-import {collection, addDoc} from 'firebase/firestore';
-import dataBase from '../utils/firebaseConfig';  
-
+import { addDoc, collection } from 'firebase/firestore'
+import dataBase from '../utils/firebaseConfig';
 
 const Cart = () => {
     const {cartListItems, removeProduct, totalCartPrice, clearCart} = useContext(CartContext);
-
     const [showModal, setShowModal] = useState(false);
 
+    //estado para guardar todo el imput ingresado en el form
     const [formValue, setFormValue] = useState({
         name: '',
         phone: '',
-        email: ''
+        mail: ''
     })
 
+    //estado para guardar la orden de cada usuario
     const [order, setOrder] = useState({
         buyer: {},
-        items: cartListItems.map(item => {
+        //hago un filtro de las keys que necesito de cada card/producto - .map para devolver un [] con la estructura del return
+        items: cartListItems.map( (item) => {
             return {
                 id: item.id,
                 title: item.title,
                 price: item.price,
             }
         } ),
-        total: totalCartPrice
+        total: totalCartPrice()
     })
 
-    const [success, setSuccess] = useState()
-    const navigate = useNavigate()
-
-
+    //submit del form, donde evito que se recargue la pagia con el .prevenDefault
     const handleSubmit = (e) => {
         e.preventDefault()
+        //set para que el comprador tenga todos los datos del form
         setOrder({...order, buyer: formValue})
+        //con cada submit actualiza la informacion de la orden
         saveData({...order, buyer: formValue})
     }
 
+    //traigo el valor del imput a traves del evento onChange y guardo todo en setState segun el valor ingresado en cada propiedad (name/phone/mail), asocia el imput segun desde donde se ingrese, filtrando por el atributo name
     const handleChange = (e) => {
         setFormValue({...formValue, [e.target.name]: e.target.value})
     }
+
+    //fn para subir toda la orden a firebase
+    const saveData = async (newOrder) => {
+        const orderFirebase = collection(dataBase, 'orders')
+        const orderDoc = await addDoc(orderFirebase, newOrder)
+        console.log("orden generada: ", orderDoc)
+        setSuccess(orderDoc.id)
+        clearCart()
+    }
+
+    const [success, setSuccess] = useState()
+    const navigate = useNavigate()
 
     const finishOrder = () => {
         navigate('/')
     }
 
-    const saveData = async (newOrder) => {
-        const orderFirebase = collection(dataBase, 'orders')
-        const orderDoc = await addDoc(orderFirebase, newOrder)
-        console.log("orden generada: ", orderDoc.id)
-        setSuccess(orderDoc.id)
-        clearCart()
-    }
 
     return(
         <Container className='checkout-container '>
+            {console.log('orden: ', order)}
             <h2>CARRITO DE COMPRAS - CHECKOUT</h2>
             {cartListItems.length === 0 ? (
                 <>
@@ -102,46 +108,44 @@ const Cart = () => {
                 </Button>
                 </>
             )}
-            <Modal title={success ? 'COMPRA EXITOSA' : 'FORMULARIO DE CONTACTO'} open={showModal} handleClose={() => setShowModal(false)}>
-            {success ? (
-                <div>
-                    La orden fue generada con éxito!
-                    Numero de orden: {success}
-                    <button onClick={finishOrder}>ACEPTAR</button>
-                </div>
-            ) : (
-                <form className="form-contact" onSubmit={handleSubmit}>
-                    <TextField 
-                        id="outlined-basic" 
-                        name="name"
-                        label="NOMBRE Y APELLIDO" 
-                        variant="outlined" 
-                        value={formValue.name}
-                        onChange={handleChange}
-                    />
-                    <TextField 
-                        id="outlined-basic" 
-                        name="phone"
-                        label="TELÉFONO" 
-                        variant="outlined" 
-                        value={formValue.phone}
-                        onChange={handleChange}
-                    />
-                    <TextField 
-                        id="outlined-basic" 
-                        name="EMAIL"
-                        label="Mail" 
-                        value={formValue.email}
-                        variant="outlined" 
-                        onChange={handleChange}
-                    />
-                    <button type="submit">ENVIAR</button>
-                </form>
-            )}
-            
-        </Modal>
-
-            
+                <Modal title={success ? 'COMPRA EXITOSA' : 'FORMULARIO DE CONTACTO'} open={showModal} handleClose={() => setShowModal(false)}>
+                {success ? (
+                    <div>
+                        La orden fue generada con éxito!
+                        Numero de orden: {success}
+                        <button onClick={finishOrder}>ACEPTAR</button>
+                    </div>
+                ) : (
+                    <form className="form-contact" onSubmit={handleSubmit}>
+                        <TextField 
+                            id="outlined-basic" 
+                            name="name"
+                            label="NOMBRE Y APELLIDO" 
+                            variant="outlined" 
+                            value={formValue.name}
+                            onChange={handleChange}
+                        />
+                        <TextField 
+                            id="outlined-basic" 
+                            name="phone"
+                            label="TELÉFONO" 
+                            variant="outlined" 
+                            value={formValue.phone}
+                            onChange={handleChange}
+                        />
+                        <TextField 
+                            id="outlined-basic" 
+                            name="mail"
+                            label="Mail" 
+                            value={formValue.mail}
+                            variant="outlined" 
+                            onChange={handleChange}
+                        />
+                        <button type="submit">ENVIAR</button>
+                    </form>
+                )}
+                
+            </Modal>            
         </Container>
     )
 }
