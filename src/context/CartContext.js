@@ -53,6 +53,9 @@ const CartProvider = ({children}) => {
         
         //fn .splice para que elimine 1 elemento del nuevo array [indexOfItem], que sera el que coincida con el id que estoy buscando
         cartListItems.splice((indexOfItem), 1)
+
+        //localStorage para eliminar los productos del carrito
+        localStorage.setItem('products', JSON.stringify ([...cartListItems]))      
         setCartListItems(cartListItems => [...cartListItems])
     }
 
@@ -64,6 +67,8 @@ const CartProvider = ({children}) => {
 
     //CLEAR - fn para vaciar el carrito por completo
     const clearCart = () => {
+        //localStorage para eliminar todos los productos del carrito
+        localStorage.setItem('products', JSON.stringify ([]))      
         setCartListItems([]);
     }
 
