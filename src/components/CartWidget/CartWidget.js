@@ -77,8 +77,8 @@ const CartWidget = () => {
                                 <p>{item.title}</p>
                                 <span>$ {item.price}</span>
                                 <p>CANTIDAD: {item.quantity}</p>
-                            <button className='btn-delete-item' >
-                                <DeleteIcon onClick={() => removeProduct(item.id)}/>
+                            <button className='btn-delete-item' onClick={() => removeProduct(item.id)} >
+                                <DeleteIcon/>
                             </button>
                             </div>
                             </>

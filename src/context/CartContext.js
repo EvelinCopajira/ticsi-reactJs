@@ -6,8 +6,8 @@ const CartContext = createContext();
 
 //defino el provider que va a darle toda la info a los children
 const CartProvider = ({children}) => {
-    //state para que se guarden todos los productos que vaya agregando al carrito - nuevo array
-    const [cartListItems, setCartListItems] = useState([]);
+    //state para que se guarden todos los productos que vaya agregando al carrito - nuevo array - traigo del local storage la key 'products'
+    const [cartListItems, setCartListItems] = useState(JSON.parse(localStorage.getItem('products')) || []);
 
     //const [changeQuantity, setChangeQuantity] = useState(0)
 
@@ -17,11 +17,13 @@ const CartProvider = ({children}) => {
 
         //fn .includes booleano si el producto lo agrego de HOME por primera vez false, si ya hice varios clicks true
         let isInCart = cartListItems.includes(productInCart)
-
         if (isInCart) {
             productInCart.quantity += quantity
         } else {
             product.quantity = quantity
+
+            //localStorage para guardar los productos agregados al carrito
+            localStorage.setItem('products', JSON.stringify ([...cartListItems, product])) 
             setCartListItems(cartListItems => [...cartListItems, product])
         }       
     }
