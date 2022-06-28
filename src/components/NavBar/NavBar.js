@@ -66,7 +66,7 @@ const NavBar = () => {
                             disableRipple
                             style={{ backgroundColor: 'transparent' }} 
                             variant='text' 
-                            className='navbar__btn'
+                            className='link-menu'
                         >
                             PRODUCTOS
                         </Button>
@@ -80,7 +80,7 @@ const NavBar = () => {
                             }}
                         >
                             {categories.map((cat) => {
-                                return(<MenuItem onClick={handleClose}><Link to={`/items/${cat}`}>{cat}</Link></MenuItem>) 
+                                return(<MenuItem onClick={handleClose}><Link to={`/items/${cat}`} className='link-sub-menu'>{cat}</Link></MenuItem>) 
                             })}
                         </Menu>
                     </li>
@@ -95,7 +95,6 @@ const NavBar = () => {
                         </Button>
                     </li>
                 </ul>
-            <Button color="inherit">BUSCAR</Button>
             <ThemeSwitch></ThemeSwitch>
             <CartWidget></CartWidget>
             </Toolbar>  
