@@ -10,7 +10,7 @@ import { Grid } from '@mui/material';
 const ItemList = ({title, products}) => {
     return (
         <>
-        <h2>{title}</h2>
+        <h1>{title}</h1>
         <Grid container spacing={3} className='grid-container'>
         {
             products.map(({title, price, image, id, stock}) => {

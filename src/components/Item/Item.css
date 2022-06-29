@@ -1,11 +1,16 @@
 .card-item-container {
     border-radius: 20px;
+    margin: 3%;
+}
+
+.MuiCardContent-root {
+    width: 92%;
 }
 
 .card-item {
     display: flex;
     flex-direction: column;
-    color: wheat;
+    color: white;
     align-items: center;
 }
 
@@ -24,7 +29,7 @@
 
 .name-price-container p {
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 400;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -39,21 +44,22 @@
 }
 
 .grid-card {
-    margin: auto;
+    padding-left: 0;
 }
 
 .btn {
-    color: wheat !important;
+    color: white !important;
     text-decoration: none;
     letter-spacing: auto;
+    font-family: 'Roboto Condensed', sans-serif !important;
 }
 
 .btn span {
-    color: wheat !important;
+    color: white !important;
     text-decoration: none;
-    border-radius: 30px;
     border: solid 2px;
     letter-spacing: auto;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 

@@ -68,7 +68,8 @@ const NavBar = () => {
                             variant='text' 
                             className='link-menu'
                         >
-                            PRODUCTOS
+                            <Link to='/products' className='link-menu'>PRODUCTOS</Link>
+                            
                         </Button>
                         <Menu
                             id="basic-menu"
@@ -90,13 +91,13 @@ const NavBar = () => {
                         </Button>
                     </li>
                     <li>
-                        <Button variant='text' color='inherit'>
+                        <Button variant='text' color='inherit' className='link-menu'>
                             CUIDADOS Y TIPS  
                         </Button>
                     </li>
                 </ul>
-            <ThemeSwitch></ThemeSwitch>
-            <CartWidget></CartWidget>
+            <ThemeSwitch />
+            <CartWidget />
             </Toolbar>  
         </AppBar>
 

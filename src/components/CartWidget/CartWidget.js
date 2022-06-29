@@ -19,9 +19,8 @@ import IconButton from '@mui/material/IconButton';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
     '& .MuiBadge-badge': {
-    right: -3,
-    top: 13,
-    border: `2px solid ${theme.palette.background.paper}`,
+    right: -7,
+    top: 17,
     padding: '0 4px',
 },
 }));
@@ -46,7 +45,7 @@ const CartWidget = () => {
     return (
         <div className='cart-container'>
             <IconButton aria-label="cart">
-                <StyledBadge badgeContent={amountOfProducts === 0 ? '0' : amountOfProducts} color='primary'>
+                <StyledBadge badgeContent={amountOfProducts === 0 ? '0' : amountOfProducts} className= 'badge-icon'>
                 <ShoppingCartIcon 
                     aria-controls={open ? 'basic-menu' : undefined}
                     aria-haspopup="true"

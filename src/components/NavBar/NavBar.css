@@ -1,11 +1,14 @@
+header {
+    box-shadow: none !important;
+}
+
 .toolbar-nav {
     display: flex;
     justify-content: space-evenly;
-    color: wheat;
 }
 
 .container-logo {
-    width: 100px;
+    width: 80px;
 }
 
 .container-logo img {
@@ -16,6 +19,9 @@
     list-style-type: none;
     display: flex;
     justify-content: space-around;
+    margin: 0;
+    padding: 0;
+
 }
 
 .navbar-list li {
@@ -27,16 +33,19 @@
 }
 
 .light-mode {
-    background: #2e7d32 !important;
+    background: #e4ac59 !important;
 }
 
 .link-menu {
     text-decoration: none;
-    color: wheat !important;
+    font-size: 16px !important;
+    color: white !important;
 }
 
 .link-sub-menu {
     text-decoration: none;
     color: black;
+    text-transform: uppercase;
+    font-size: 14px;
 
 }
