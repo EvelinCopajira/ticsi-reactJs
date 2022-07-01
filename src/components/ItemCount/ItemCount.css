@@ -10,3 +10,9 @@
 .btn-card {
     width: auto;
 }
+
+.btn {
+    background: #e4ac59 !important;
+    letter-spacing: auto;
+    font-family: 'Roboto Condensed', sans-serif !important;
+}

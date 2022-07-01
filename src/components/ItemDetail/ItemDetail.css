@@ -1,17 +1,29 @@
 .img-detail-container {
-    width: 300px;
+    width: 250px;
 }
 
 .img-detail-container img {
     width: 100%;
 }
 
-
 .detail-container {
     display: flex;
     justify-content: space-evenly;
 }
 
-.btn-back-products {
-    
+.data-detail-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn {
+    background: #e4ac59 !important;
+    letter-spacing: auto;
+    font-family: 'Roboto Condensed', sans-serif !important;
+}
+
+.btn a {
+    color: white;
+    text-decoration: none;
 }

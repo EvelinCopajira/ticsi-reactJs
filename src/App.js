@@ -6,7 +6,7 @@ import Products from './pages/Products';
 import NotFound from './pages/NotFound';
 import Detail from './pages/Detail';
 import ProductsList from './pages/ProductsList';
-import Cart from './pages/Cart';
+import Cart from './pages/Cart/Cart';
 
 //import react-router-dom
 import {BrowserRouter, Routes, Route} from 'react-router-dom';

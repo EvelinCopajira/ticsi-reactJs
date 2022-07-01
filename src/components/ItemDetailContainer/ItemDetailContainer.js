@@ -20,10 +20,10 @@ const ItemDetailContainer = () => {
     useEffect (() => {  
         getProduct()
         .then((prod) => {
-            console.log('respuesta get item: ', prod);
             setProduct(prod)
         })
-    },[id])
+// eslint-disable-next-line
+    },[id]) 
 
     const getProduct = async() => {
         const docRef = doc(dataBase, 'productsTicsi', id);
@@ -35,7 +35,7 @@ const ItemDetailContainer = () => {
 
     return(
         <div>
-            <ItemDetail title={'DETALLE DE PRODUCTO'} product={product}/>        
+            <ItemDetail title={'DETALLE DEL PRODUCTO'} product={product}/>        
         </div>
     )
 }

@@ -28,22 +28,25 @@ const ItemDetail = ({title, product}) => {
                 <img src={`/${product.image}`} alt='imagen-detalle'></img>
             </div>
             <div>
-                <h3>{product.title}</h3>
+                <div className='data-detail-container'>
+                    <h3>{product.title}</h3>
+                    <p>${product.price}</p>
+                </div>
                 <p>{product.description}</p>
-                <p>${product.price}</p>
                 {showButton === false ?
                 <ItemCount product={product} 
                     quantity={quantity}
                     setShowButton={setShowButton}
                     refreshQuantity={setQuantity}>
                 </ItemCount>
-                :
-                <Button variant='outlined'>
+                
+                :                
+                <Button className='btn'>
                     <Link to={'/cart'}>TERMINAR COMPRA</Link>                    
                 </Button>}
-            <Button variant='outlined'>
-                <Link to={'/products'} className='btn-back-products'>VOLVER A PRODUCTOS</Link>
-            </Button>
+                <Button className='btn'>
+                    <Link to={'/products'}>VOLVER A PRODUCTOS</Link>
+                </Button>
             </div>
         </div>
         </>

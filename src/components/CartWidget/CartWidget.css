@@ -1,5 +1,5 @@
 .container-cart-list div {
-    width: 10%;
+    width: 8%;
 }
 
 .container-cart-list div img {
@@ -9,7 +9,7 @@
 .container-cart-list {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .btn-delete-item {
@@ -23,4 +23,33 @@
 
 .BaseBadge-badge {
     background-color: white;
+}
+
+.container-cart-list p {
+    font-size: 14px !important;
+}
+
+.container-cart {
+    text-align: center;
+}
+
+.cart-list-header {
+    border-bottom: 2px solid #e4ac59;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.cart-list-header h4 {
+    width: 20%;
+    font-size: 14px !important;
+
+}
+
+.qty-cart {
+    margin-left: 5%;
+}
+
+p {
+    margin: 5%;
 }

@@ -1,0 +1,74 @@
+.cart-table-header {
+    display: flex;
+    border-bottom: 2px solid #e4ac59;
+}
+
+h4 {
+    width: 15%;
+    font-size: 18px;
+}
+.cart-table-content {
+    display: flex;
+    align-items: center;
+}
+
+.cart-table-item {
+    width: 15%;
+}
+
+.cart-table-item img {
+    width: 100%;
+}
+
+.btn-delete-item {
+    margin-left: 5%;
+}
+
+p {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.cart-footer {
+    text-align: right;
+    font-size: 20px;
+}
+
+.btn {
+    background: #e4ac59 !important;
+    letter-spacing: auto;
+    font-family: 'Roboto Condensed', sans-serif !important;
+    
+}
+
+h2 {
+    font-family: 'Abril Fatface', cursive !important;
+}
+
+.form-contact {
+    display: flex;
+    flex-direction: column;
+    margin: 5%;
+}
+
+.form-contact div {
+    margin-bottom: 10px;
+    border: #e4ac59;
+}
+
+.MuiOutlinedInput-notchedOutline  {
+    border-color: #e4ac59 !important;
+
+}
+.btn-submit {
+    color: white;
+    border: none;
+    background: #e4ac59 !important;
+    letter-spacing: auto;
+    font-family: 'Roboto Condensed', sans-serif !important;
+    padding: 3%;
+}
+
+.MuiDialogContent-root {
+    text-align: center;
+}

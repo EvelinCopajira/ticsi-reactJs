@@ -5,6 +5,7 @@ import './CartWidget.css';
 import { useState } from 'react';
 import { useContext } from 'react';
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 
 //import context
 import { CartContext } from '../../context/CartContext';
@@ -16,6 +17,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
+import { Button } from '@mui/material';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
     '& .MuiBadge-badge': {
@@ -64,26 +66,44 @@ const CartWidget = () => {
                 'aria-labelledby': 'basic-button',
                 }}
             >
-
                 <div className='container-cart'>
-                    {cartListItems.map((item) => {
-                        return(
+                    {cartListItems.length === 0 ? 
+                    (<>
+                        <p>No hay productos en el carrito</p>
+                        <Button className='btn'>
+                            <Link to={'/products'}>COMPRAR</Link>
+                        </Button>
+                    </> ) : 
+                    (<>
+                        <div className="cart-list-header">
+                            <h4>IMÁGEN</h4>
+                            <h4>NOMBRE</h4>
+                            <h4>PRECIO UNITARIO</h4>
+                            <h4>CANTIDAD</h4>
+                            <h4>ELIMINAR</h4>
+                        </div>
+                        {cartListItems.map((item) => {
+                            return(
                             <>
-                            <div className='container-cart-list' key={item.id}>
-                                <div>
-                                    <img src={`/${item.image}`} alt='imagen-producto' />
+                                <div className='container-cart-list' key={item.id}>
+                                    <div>
+                                        <img src={`/${item.image}`} alt='imagen-producto' />
+                                    </div>
+                                    <p>{item.title}</p>
+                                    <p>${item.price}</p>
+                                    <p className='qty-cart'>{item.quantity}</p>
+                                    <button className='btn-delete-item' onClick={() => removeProduct(item.id)} >
+                                        <DeleteIcon/>
+                                    </button>
                                 </div>
-                                <p>{item.title}</p>
-                                <span>$ {item.price}</span>
-                                <p>CANTIDAD: {item.quantity}</p>
-                            <button className='btn-delete-item' onClick={() => removeProduct(item.id)} >
-                                <DeleteIcon/>
-                            </button>
-                            </div>
-                            </>
-                        )
-                    })}
-                    {cartListItems.length === 0 ? (<p>No hay productos en el carrito</p>) : <button onClick={() => clearCart()}>VACIAR CARRITO</button>}
+                            </>)
+                        })}
+                        <Button onClick={() => clearCart()} className='btn'>VACIAR CARRITO</Button>
+                        <Button className='btn'>
+                            <Link to={'/cart'}>TERMINAR COMPRA</Link>                    
+                        </Button>
+                        
+                    </>)}
                 </div>
             </Menu>
         </div>

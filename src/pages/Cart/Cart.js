@@ -1,16 +1,18 @@
-import {Container} from '@mui/material'
+//import CSS
+import './Cart.css';
+import {Container} from '@mui/material';
 
-import { CartContext } from '../context/CartContext';
+import { CartContext } from '../../context/CartContext';
 import { useContext, useState } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
-import Modal from '../components/Modal/Modal'
+import Modal from '../../components/Modal/Modal'
 import TextField from '@mui/material/TextField';
 
 //import firestore
 import { addDoc, collection } from 'firebase/firestore'
-import dataBase from '../utils/firebaseConfig';
+import dataBase from '../../utils/firebaseConfig';
 
 const Cart = () => {
     const {cartListItems, removeProduct, totalCartPrice, clearCart} = useContext(CartContext);
@@ -70,30 +72,42 @@ const Cart = () => {
 
     return(
         <Container className='checkout-container '>
-            {console.log('orden: ', order)}
-            <h2>CARRITO DE COMPRAS - CHECKOUT</h2>
+            <h2>checkout</h2>
             {cartListItems.length === 0 ? (
                 <>
                 <h3>El carrito está vacío</h3>
-                <Button variant='outlined' >
+                <Button className='btn' >
                     <Link to={'/products'} className='btn-back-products'>Empezá a comprar</Link>
                 </Button>
                 </>
             ) : (
                 <>
                 <div className="cart-table-header">
-                    TITULOS
+                    <h4>IMÁGEN</h4>
+                    <h4>NOMBRE</h4>
+                    <h4>CANTIDAD</h4>
+                    <h4>PRECIO UNITARIO</h4>
+                    <h4>SUBTOTAL</h4>
+                    <h4>ELIMINAR</h4>
                 </div>
                 {cartListItems.map((item) => {
                     return(
                         <div className="cart-table-content" key={item.id}>
-                            <div>
+                            <div className='cart-table-item'>
                                 <img src={`/${item.image}`} alt='imagen-producto' />
                             </div>
-                            <p>{item.title}</p>
-                            <p>CANTIDAD:{item.quantity}</p>
-                            <span>PRECIO: ${item.price}</span>
-                            <p>SUTOTAL: ${item.price*item.quantity}</p>
+                            <div className='cart-table-item'>
+                                <p>{item.title}</p>
+                            </div>
+                            <div className='cart-table-item'>
+                                <p>{item.quantity}</p>
+                            </div>
+                            <div className='cart-table-item'>
+                                <p>${item.price}</p>
+                            </div>
+                            <div className='cart-table-item'>
+                                <p>${item.price*item.quantity}</p>
+                            </div>
                             <button className='btn-delete-item' >
                                 <DeleteIcon onClick={() => removeProduct(item.id)}/>
                             </button>
@@ -101,19 +115,20 @@ const Cart = () => {
                     )
                 })}
                 <div className="cart-footer">
-                    <p className="total-cart-price">Total: ${totalCartPrice()}</p>
+                    <p className="total-cart-price">Total ${totalCartPrice()}</p>
                 </div>
-                <Button variant='outlined' onClick={() => setShowModal(true)}>
+                <Button className='btn' onClick={() => setShowModal(true)}>
                     TERMINAR COMPRA
                 </Button>
                 </>
             )}
-                <Modal title={success ? 'COMPRA EXITOSA' : 'FORMULARIO DE CONTACTO'} open={showModal} handleClose={() => setShowModal(false)}>
+                <Modal title={success ? 'COMPRA CONFIRMADA' : 'FORMULARIO DE CONTACTO'} open={showModal} handleClose={() => setShowModal(false)}>
                 {success ? (
-                    <div>
-                        La orden fue generada con éxito!
-                        Numero de orden: {success}
-                        <button onClick={finishOrder}>ACEPTAR</button>
+                    <div className='order-finished'>
+                        <p>Muchas gracias por tu compra!</p>
+                        <p>La orden fue generada con éxito</p>
+                        <p>Número de orden: {success}</p>                        
+                        <button onClick={finishOrder} className='btn-submit'>ACEPTAR</button>
                     </div>
                 ) : (
                     <form className="form-contact" onSubmit={handleSubmit}>
@@ -136,12 +151,12 @@ const Cart = () => {
                         <TextField 
                             id="outlined-basic" 
                             name="mail"
-                            label="Mail" 
+                            label="MAIL" 
                             value={formValue.mail}
                             variant="outlined" 
                             onChange={handleChange}
                         />
-                        <button type="submit">ENVIAR</button>
+                        <button type="submit" className='btn-submit'>ENVIAR</button>
                     </form>
                 )}
                 

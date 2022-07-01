@@ -43,7 +43,7 @@ const ItemCount = ({product, quantity, refreshQuantity, setShowButton}) => {
             <p>{quantity}</p>
             <Button onClick={addCount} disabled = {quantity >= stock}>+</Button>
         </div>
-        <Button variant='outlined' onClick={handleOnClick}>
+        <Button className='btn' onClick={handleOnClick}>
             AGREGAR AL CARRITO
         </Button>
         </>
