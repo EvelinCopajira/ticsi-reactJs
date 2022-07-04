@@ -9,6 +9,7 @@
 .detail-container {
     display: flex;
     justify-content: space-evenly;
+    margin-top: 4%;
 }
 
 .data-detail-container {

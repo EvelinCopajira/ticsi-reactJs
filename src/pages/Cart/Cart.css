@@ -1,6 +1,7 @@
 .cart-table-header {
     display: flex;
     border-bottom: 2px solid #e4ac59;
+    margin-top: 5%;
 }
 
 h4 {
@@ -24,14 +25,19 @@ h4 {
     margin-left: 5%;
 }
 
-p {
+.cart-table-item p {
     font-size: 18px;
     font-weight: 700;
 }
 
 .cart-footer {
-    text-align: right;
+    margin-bottom: 2%;
+}
+
+.cart-footer p {
+    text-align: center;
     font-size: 20px;
+    font-weight: 900;
 }
 
 .btn {
@@ -52,7 +58,7 @@ h2 {
 }
 
 .form-contact div {
-    margin-bottom: 10px;
+    margin-top: 10px;
     border: #e4ac59;
 }
 
@@ -67,8 +73,14 @@ h2 {
     letter-spacing: auto;
     font-family: 'Roboto Condensed', sans-serif !important;
     padding: 3%;
+    margin-top: 5%;
 }
 
 .MuiDialogContent-root {
     text-align: center;
+}
+
+.order-finished p {
+    font-size: 18px;
+    margin-top: 2%;
 }

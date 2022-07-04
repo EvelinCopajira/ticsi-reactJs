@@ -8,8 +8,9 @@ import { Button } from '@mui/material';
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 
-//contador, valida con el stock de la API y actualiza con botones +/-. Recibe por props la cantidad y actualización de cantidad desde ItemDetail
+//contador, valida con el stock y actualiza con botones +/-. Recibe por props la cantidad y actualización de cantidad desde ItemDetail
 const ItemCount = ({product, quantity, refreshQuantity, setShowButton}) => {
+
     const stock = product.stock;
 
     //traigo el contexto
@@ -39,7 +40,7 @@ const ItemCount = ({product, quantity, refreshQuantity, setShowButton}) => {
     return (
         <>
         <div className='count-item'>
-            <Button onClick={removeCount} disabled = {quantity === 0}>-</Button>
+            <Button onClick={removeCount} disabled = {quantity === 1}>-</Button>
             <p>{quantity}</p>
             <Button onClick={addCount} disabled = {quantity >= stock}>+</Button>
         </div>

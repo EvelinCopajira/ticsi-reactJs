@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 //import react
 import { useState } from 'react';
 
+
 //recibe la prop 'product' del componente padre ItemDetailContainer
 const ItemDetail = ({title, product}) => {
     const [quantity, setQuantity] = useState(1);
@@ -38,8 +39,7 @@ const ItemDetail = ({title, product}) => {
                     quantity={quantity}
                     setShowButton={setShowButton}
                     refreshQuantity={setQuantity}>
-                </ItemCount>
-                
+                </ItemCount>                
                 :                
                 <Button className='btn'>
                     <Link to={'/cart'}>TERMINAR COMPRA</Link>                    

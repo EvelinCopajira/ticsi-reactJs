@@ -9,12 +9,16 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import Modal from '../../components/Modal/Modal'
 import TextField from '@mui/material/TextField';
+import { useForm } from "react-hook-form"
+
 
 //import firestore
 import { addDoc, collection } from 'firebase/firestore'
 import dataBase from '../../utils/firebaseConfig';
 
 const Cart = () => {
+    const { register, handleSubmit, formState: { errors } } = useForm()
+
     const {cartListItems, removeProduct, totalCartPrice, clearCart} = useContext(CartContext);
     const [showModal, setShowModal] = useState(false);
 
@@ -40,8 +44,7 @@ const Cart = () => {
     })
 
     //submit del form, donde evito que se recargue la pagia con el .prevenDefault
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    const endPurchase = (e) => {
         //set para que el comprador tenga todos los datos del form
         setOrder({...order, buyer: formValue})
         //con cada submit actualiza la informacion de la orden
@@ -50,6 +53,7 @@ const Cart = () => {
 
     //traigo el valor del imput a traves del evento onChange y guardo todo en setState segun el valor ingresado en cada propiedad (name/phone/mail), asocia el imput segun desde donde se ingrese, filtrando por el atributo name
     const handleChange = (e) => {
+        e.preventDefault();
         setFormValue({...formValue, [e.target.name]: e.target.value})
     }
 
@@ -57,7 +61,6 @@ const Cart = () => {
     const saveData = async (newOrder) => {
         const orderFirebase = collection(dataBase, 'orders')
         const orderDoc = await addDoc(orderFirebase, newOrder)
-        console.log("orden generada: ", orderDoc)
         setSuccess(orderDoc.id)
         clearCart()
     }
@@ -131,31 +134,58 @@ const Cart = () => {
                         <button onClick={finishOrder} className='btn-submit'>ACEPTAR</button>
                     </div>
                 ) : (
-                    <form className="form-contact" onSubmit={handleSubmit}>
+                    <form className="form-contact" onSubmit={handleSubmit(endPurchase)}>
                         <TextField 
-                            id="outlined-basic" 
+                            id="outlined-basic"
                             name="name"
                             label="NOMBRE Y APELLIDO" 
                             variant="outlined" 
                             value={formValue.name}
+                            type='text'
+                            {...register('name', {
+                                required: true,
+                                minLength: 5,
+                                pattern: /^[A-Za-z]+ [A-Za-z]+$/
+                            })}
                             onChange={handleChange}
-                        />
+                            />
+                        {errors.name?.type === 'required' && 'Este campo es requerido'}
+                        {errors.name?.type === 'minLength' && 'Ingreso mínimo de 5 caracteres'}
+                        {errors.name?.type === 'pattern' && 'Solo se pueden ingresar letras'}
+
                         <TextField 
-                            id="outlined-basic" 
+                            id="outlined-basic"                           
                             name="phone"
                             label="TELÉFONO" 
                             variant="outlined" 
                             value={formValue.phone}
+                            type='number'
+                            {...register('phone', {
+                                required: true,
+                                pattern: /^[0-9]*$/,
+                                minLength: 8
+                            })}
                             onChange={handleChange}
                         />
+                        {errors.phone?.type === 'required' && 'El campo es requerido'}
+                        {errors.phone?.type === 'minLength' && 'Debe ingresar por lo menos 8 números'}
+
                         <TextField 
-                            id="outlined-basic" 
+                            id="outlined-basic"
                             name="mail"
                             label="MAIL" 
-                            value={formValue.mail}
                             variant="outlined" 
+                            value={formValue.mail}
+                            type='text'
+                            {...register('mail', {
+                                required: true,
+                                pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+                            })}
                             onChange={handleChange}
                         />
+                        {errors.mail?.type === 'required' && 'El campo es requerido'}
+                        {errors.mail?.type === 'pattern' && 'Formato requerido: exaple@example.com'}
+                        
                         <button type="submit" className='btn-submit'>ENVIAR</button>
                     </form>
                 )}

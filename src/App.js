@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound';
 import Detail from './pages/Detail';
 import ProductsList from './pages/ProductsList';
 import Cart from './pages/Cart/Cart';
+import Footer from './components/Footer/Footer';
 
 //import react-router-dom
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
@@ -32,6 +33,7 @@ function App() {
               <Route path='*' element={<NotFound />}></Route>
               <Route path='/cart' element= {<Cart />}></Route>
             </Routes>
+            <Footer />
           </BrowserRouter>
         </ThemeProvider>
       </CartProvider>

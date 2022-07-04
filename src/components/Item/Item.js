@@ -32,12 +32,13 @@ const CardItem = ({image, price, title, stock, id}) => {
                     <div className='name-price-container'>
                         <p>{title}</p>
                         <p>$ {price}</p>
-                    </div>
+                    </div>       
                     <div className='btn-card'>
                         <Button className='btn'>
                             <Link to={`/item/${id}`} className='btn'>VER DETALLE</Link>  
                         </Button>
-                        <Button onClick={()=> addProductToCart({image, price, title, stock, id}, 1)} className='btn'>
+                        
+                        <Button onClick={()=> addProductToCart({image, price, title, stock, id}, 1)} stock={stock} className='btn'>
                             AGREGAR AL CARRITO
                         </Button>
                     </div>
