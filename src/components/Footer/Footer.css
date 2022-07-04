@@ -1,0 +1,25 @@
+.footer-container {
+    display: flex;
+    background-color: black;
+    color: white;
+    text-align: start;
+    justify-content: space-evenly;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-top: auto;
+}
+
+p {
+    font-size: 14px;
+    margin: 0;
+    font-weight: 100;
+}
+
+.instagram a, .place a, .mail a {
+    margin-top: 5%;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
