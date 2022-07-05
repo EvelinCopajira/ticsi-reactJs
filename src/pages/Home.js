@@ -1,11 +1,13 @@
 import ItemListContainer from "../components/ItemListContainer/ItemListContainer";
+import CarouselHome from "../components/Carousel/Carousel";
 
 const Home = () => {
     return (
         <div className='general-container'>
             <h1>HOME</h1>
-            <ItemListContainer>
-            </ItemListContainer>
+            <CarouselHome />
+            {/* <ItemListContainer>
+            </ItemListContainer> */}
         </div>
     )
 }
