@@ -1,0 +1,31 @@
+.carrousel-container h2 {
+    text-transform: none;
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    color: white;
+    font-size: 74px;
+}
+
+
+.carousel .thumbs-wrapper {
+    display: none;
+}
+
+.carousel .control-dots .dot {
+    background-color: black;
+}
+
+.carousel-slider,.slider-wrapper, .slider, .carrousel-container {
+    height: 70vh;
+}
+
+.carousel-status {
+    display: none
+
+}
+
+
+.carrousel-container img {
+    width: fit-content !important;
+}
