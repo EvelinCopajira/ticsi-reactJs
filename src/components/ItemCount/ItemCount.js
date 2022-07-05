@@ -11,10 +11,12 @@ import { CartContext } from '../../context/CartContext';
 //contador, valida con el stock y actualiza con botones +/-. Recibe por props la cantidad y actualización de cantidad desde ItemDetail
 const ItemCount = ({product, quantity, refreshQuantity, setShowButton}) => {
 
-    const stock = product.stock;
+       //traigo el contexto
+       const {addProductToCart, cartListItems} = useContext(CartContext);
 
-    //traigo el contexto
-    const {addProductToCart} = useContext(CartContext);
+    const stock = product.stock;
+    const productInCart = cartListItems.find(cartItem => cartItem.id === product.id)
+    const totalQuantity = (productInCart === undefined ? 0 : productInCart.quantity) + quantity;
 
     //fn para darle funcionalidad al +/- del count
     const addCount = () => {
@@ -28,6 +30,7 @@ const ItemCount = ({product, quantity, refreshQuantity, setShowButton}) => {
         return setShowButton(true)
     };
     const addProduct = () => {
+        console.log(quantity)
         return addProductToCart(product, quantity)
     } 
 
@@ -36,13 +39,15 @@ const ItemCount = ({product, quantity, refreshQuantity, setShowButton}) => {
         showButton()
         addProduct()
     }
+
+    
     
     return (
         <>
         <div className='count-item'>
             <Button onClick={removeCount} disabled = {quantity === 1}>-</Button>
             <p>{quantity}</p>
-            <Button onClick={addCount} disabled = {quantity >= stock}>+</Button>
+            <Button onClick={addCount} disabled = {totalQuantity >= stock}>+</Button>
         </div>
         <Button className='btn' onClick={handleOnClick}>
             AGREGAR AL CARRITO

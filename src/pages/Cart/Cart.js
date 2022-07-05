@@ -120,6 +120,9 @@ const Cart = () => {
                 <div className="cart-footer">
                     <p className="total-cart-price">Total ${totalCartPrice()}</p>
                 </div>
+                <Button className='btn'>
+                    <Link to={'/products'}>SEGUIR COMPRANDO</Link>
+                </Button>
                 <Button className='btn' onClick={() => setShowModal(true)}>
                     TERMINAR COMPRA
                 </Button>

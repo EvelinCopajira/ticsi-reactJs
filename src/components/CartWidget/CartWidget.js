@@ -100,7 +100,7 @@ const CartWidget = () => {
                         })}
                         <Button onClick={() => clearCart()} className='btn'>VACIAR CARRITO</Button>
                         <Button className='btn'>
-                            <Link to={'/cart'}>TERMINAR COMPRA</Link>                    
+                            <Link to={'/cart'}>IR AL CHECKOUT</Link>                    
                         </Button>
                         
                     </>)}
