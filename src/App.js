@@ -1,6 +1,6 @@
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
-import Home from './pages/Home';
+import Home from './pages/Home/Home';
 import Contact from './pages/Contact';
 import Products from './pages/Products';
 import NotFound from './pages/NotFound';
