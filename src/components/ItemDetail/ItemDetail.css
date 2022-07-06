@@ -1,5 +1,5 @@
 .img-detail-container {
-    width: 250px;
+    width: 50%;
 }
 
 .img-detail-container img {
@@ -9,13 +9,15 @@
 .detail-container {
     display: flex;
     justify-content: space-evenly;
-    margin-top: 4%;
+    padding: 5%;
+    align-items: center;
 }
 
 .data-detail-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
+    margin: 2%;
 }
 
 .btn {
@@ -27,4 +29,14 @@
 .btn a {
     color: white;
     text-decoration: none;
+}
+
+.detail-container div p {
+    text-align: justify;
+    margin: 3%;
+    font-size: 18px;
+}
+
+.data-detail-container h3 {
+    font-size: 20px;
 }

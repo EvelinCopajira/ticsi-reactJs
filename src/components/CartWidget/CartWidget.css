@@ -9,7 +9,7 @@
 .container-cart-list {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 .btn-delete-item {
