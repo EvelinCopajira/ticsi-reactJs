@@ -28,10 +28,11 @@ const CartProvider = ({children}) => {
         }
 
         productInCart.quantity = totalQuantity;
-        
+                
         const newList = isInCart ? cartListItems : [...cartListItems, productInCart]
         localStorage.setItem('products', JSON.stringify(newList))
-        setCartListItems(cartListItems => newList)
+        return setCartListItems(cartListItems => newList)
+
     }
 
     
@@ -49,14 +50,14 @@ const CartProvider = ({children}) => {
         cartListItems.splice((indexOfItem), 1);
         //localStorage para eliminar los productos del carrito
         localStorage.setItem('products', JSON.stringify ([...cartListItems]))      
-        setCartListItems(cartListItems => [...cartListItems])
+        return setCartListItems(cartListItems => [...cartListItems])
     }
 
     //CLEAR - fn para vaciar el carrito por completo
     const clearCart = () => {
         //localStorage para eliminar todos los productos del carrito
         localStorage.setItem('products', JSON.stringify ([]))      
-        setCartListItems([]);
+        return setCartListItems([]);
     }
 
     //fn para llevar la cantidad al Icon Cart del NavBar
