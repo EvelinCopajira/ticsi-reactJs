@@ -8,7 +8,7 @@ const CarouselHome = () => {
         <div className="carousel-wrapper">
             <Carousel >
                 <div className='carrousel-container'>
-                    <img src="carrousel-koke2.webp" alt='img-carrusel-1'/>
+                    <img src="carrousel-koke4.jpg" alt='img-carrusel-1'/>
                     <h2>
                         hello winter!
                     </h2>
@@ -16,11 +16,11 @@ const CarouselHome = () => {
                 <div className='carrousel-container'>
                     <img src="carrousel-kit2.jpg" alt='img-carrusel-2'/>
                     <h2>
-                        Llegaron los kits para regalar
+                        Llegaron los kits para regalar el día del amigo!
                     </h2>
                 </div>
                 <div className='carrousel-container'>
-                    <img src="kokedama1.jpg" alt='img-carrusel-3'/>
+                    <img src="carrousel-cactus1.jpg" alt='img-carrusel-3'/>
                     <h2>
                         Ahora 3 cuotas sin interés en toda la página!
                     </h2>

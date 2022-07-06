@@ -1,12 +1,9 @@
 .carrousel-container h2 {
     text-transform: none;
-    position: absolute;
-    top: 40%;
-    left: 20%;
-    color: white;
-    font-size: 74px;
+    color: black;
+    font-size: 54px;
+    margin-bottom: 5%;
 }
-
 
 .carousel .thumbs-wrapper {
     display: none;
@@ -16,16 +13,10 @@
     background-color: black;
 }
 
-.carousel-slider,.slider-wrapper, .slider, .carrousel-container {
-    height: 70vh;
-}
-
 .carousel-status {
     display: none
 
 }
 
 
-.carrousel-container img {
-    width: fit-content !important;
-}
+
