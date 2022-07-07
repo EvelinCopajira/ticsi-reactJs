@@ -1,15 +1,13 @@
 //import CSS
 import './Item.css'
 
-//import mui styles
+//import MUI
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { Button } from '@mui/material';
 
-//import react-router-dom
-import { Link } from 'react-router-dom';
-
 //import react
+import { Link } from 'react-router-dom';
 import { useContext} from 'react';
 
 //import context
@@ -17,7 +15,7 @@ import { ThemeContext } from '../../context/ThemeContext';
 import { CartContext } from '../../context/CartContext';
 
 const CardItem = ({image, price, title, stock, id}) => {
-    //funciones que quiero importar y de qué contextos
+    //funciones que quiero importar y de que contextos
     const {darkTheme} = useContext(ThemeContext);
     const {addProductToCart} = useContext(CartContext)
 
@@ -38,7 +36,7 @@ const CardItem = ({image, price, title, stock, id}) => {
                             <Link to={`/item/${id}`} className='btn'>VER DETALLE</Link>  
                         </Button>
                         
-                        <Button onClick={()=> addProductToCart({image, price, title, stock, id}, 1)} stock={stock} className='btn'>
+                        <Button onClick={()=> addProductToCart({image, price, title, stock, id}, 1)} className='btn'>
                             AGREGAR AL CARRITO
                         </Button>
                     </div>

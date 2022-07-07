@@ -3,10 +3,6 @@
     margin: 3%;
 }
 
-.MuiCardContent-root {
-    width: 92%;
-}
-
 .card-item {
     display: flex;
     flex-direction: column;
@@ -43,23 +39,15 @@
     justify-content: space-between;
 }
 
-.grid-card {
-    padding-left: 0;
-}
-
-.btn {
+.btn, .btn span {
     color: white !important;
-    text-decoration: none;
-    letter-spacing: auto;
     font-family: 'Roboto Condensed', sans-serif !important;
+    letter-spacing: auto;
 }
 
 .btn span {
-    color: white !important;
-    text-decoration: none;
     border: solid 2px;
     letter-spacing: auto;
-    font-family: 'Roboto Condensed', sans-serif;
 }
 
 

@@ -1,23 +1,20 @@
 //import CSS
 import './ItemDetail.css'
 
-//import component: ItemCount
+//import component
 import ItemCount from '../ItemCount/ItemCount';
 
-//import mui styles
+//import MUI
 import { Button } from '@mui/material';
 
-//import react-router-dom
-import { Link } from 'react-router-dom';
-
 //import react
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 
 //recibe la prop 'product' del componente padre ItemDetailContainer
 const ItemDetail = ({title, product}) => {
     const [quantity, setQuantity] = useState(1);
-
     //indica cuando se va a ver el btn "terminar compra". En false porque no quiero que se muestre hasta que se cumpla la condicion 
     const [showButton, setShowButton] = useState(false)
     
@@ -26,7 +23,7 @@ const ItemDetail = ({title, product}) => {
         <h2>{title}</h2>
         <div className='detail-container' key={product.id}>
             <div className='img-detail-container'>
-                <img src={`/${product.image}`} alt='imagen-detalle'></img>
+                <img src={`/${product.image}`} alt='imagen-detalle' />
             </div>
             <div>
                 <div className='data-detail-container'>
@@ -44,6 +41,7 @@ const ItemDetail = ({title, product}) => {
                 <Button className='btn'>
                     <Link to={'/cart'}>TERMINAR COMPRA</Link>                    
                 </Button>}
+
                 <Button className='btn'>
                     <Link to={'/products'}>VOLVER A PRODUCTOS</Link>
                 </Button>
@@ -53,4 +51,4 @@ const ItemDetail = ({title, product}) => {
     )
 }
 
-export default ItemDetail
+export default ItemDetail;

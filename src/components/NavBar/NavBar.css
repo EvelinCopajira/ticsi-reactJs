@@ -16,16 +16,8 @@ header {
 }
 
 .navbar-list { 
-    list-style-type: none;
     display: flex;
     justify-content: space-around;
-    margin: 0;
-    padding: 0;
-
-}
-
-.navbar-list li {
-    display: flex;
 }
 
 .dark-mode {
@@ -37,15 +29,12 @@ header {
 }
 
 .link-menu {
-    text-decoration: none;
     font-size: 16px !important;
     color: white !important;
 }
 
 .link-sub-menu {
-    text-decoration: none;
     color: black;
     text-transform: uppercase;
     font-size: 14px;
-
 }

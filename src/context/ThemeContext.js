@@ -1,5 +1,5 @@
-import { createContext } from "react";
-import { useState } from "react";
+//impor react
+import { createContext, useState } from "react";
 
 //guardo context en una constante
 const ThemeContext = createContext();
@@ -10,7 +10,6 @@ const ThemeProvider = ({children}) => {
 
     //funcionn para transformar el setDarkTheme de false a true     
     const handleTheme = () => {
-        console.log('se cambio el theme ');
         setDarkTheme(!darkTheme)
     }
 
@@ -26,5 +25,5 @@ const ThemeProvider = ({children}) => {
     )
 }
 
-export default ThemeProvider
-export {ThemeContext}
+export default ThemeProvider;
+export {ThemeContext};

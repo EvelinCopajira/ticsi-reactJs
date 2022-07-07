@@ -1,3 +1,4 @@
+//impor component
 import ItemDetailContainer from "../components/ItemDetailContainer/ItemDetailContainer"
 
 const Detail = () => {

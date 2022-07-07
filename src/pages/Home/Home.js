@@ -1,8 +1,10 @@
+//import component
 import ItemListContainer from "../../components/ItemListContainer/ItemListContainer";
 import CarouselHome from "../../components/Carousel/Carousel";
 import ButtonBases from "../../components/Banner/Banner";
-import './Home.css';
 
+//import CSS
+import './Home.css';
 
 const Home = () => {
     return (

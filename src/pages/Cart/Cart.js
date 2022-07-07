@@ -1,24 +1,29 @@
 //import CSS
 import './Cart.css';
-import {Container} from '@mui/material';
 
-import { CartContext } from '../../context/CartContext';
-import { useContext, useState } from 'react';
+//impor MUI
+import {Container} from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
-import Modal from '../../components/Modal/Modal'
 import TextField from '@mui/material/TextField';
+
+//import context
+import { CartContext } from '../../context/CartContext';
+
+//import react
+import { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form"
 
+//import component
+import Modal from '../../components/Modal/Modal'
 
-//import firestore
+//import firebase
 import { addDoc, collection } from 'firebase/firestore'
 import dataBase from '../../utils/firebaseConfig';
 
 const Cart = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm()
-
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const {cartListItems, removeProduct, totalCartPrice, clearCart} = useContext(CartContext);
     const [showModal, setShowModal] = useState(false);
 
@@ -33,36 +38,36 @@ const Cart = () => {
     const [order, setOrder] = useState({
         buyer: {},
         //hago un filtro de las keys que necesito de cada card/producto - .map para devolver un [] con la estructura del return
-        items: cartListItems.map( (item) => {
+        items: cartListItems.map((item) => {
             return {
                 id: item.id,
                 title: item.title,
                 price: item.price,
             }
-        } ),
-        total: totalCartPrice()
+        }),
+        total: totalCartPrice(),
     })
 
-    //submit del form, donde evito que se recargue la pagia con el .prevenDefault
+    //submit del form
     const endPurchase = (e) => {
         //set para que el comprador tenga todos los datos del form
-        setOrder({...order, buyer: formValue})
+        setOrder({...order, buyer: formValue});
         //con cada submit actualiza la informacion de la orden
-        saveData({...order, buyer: formValue})
+        saveData({...order, buyer: formValue});
     }
 
     //traigo el valor del imput a traves del evento onChange y guardo todo en setState segun el valor ingresado en cada propiedad (name/phone/mail), asocia el imput segun desde donde se ingrese, filtrando por el atributo name
     const handleChange = (e) => {
         e.preventDefault();
-        setFormValue({...formValue, [e.target.name]: e.target.value})
+        setFormValue({...formValue, [e.target.name]: e.target.value});
     }
 
     //fn para subir toda la orden a firebase
     const saveData = async (newOrder) => {
-        const orderFirebase = collection(dataBase, 'orders')
-        const orderDoc = await addDoc(orderFirebase, newOrder)
-        setSuccess(orderDoc.id)
-        clearCart()
+        const orderFirebase = collection(dataBase, 'orders');
+        const orderDoc = await addDoc(orderFirebase, newOrder);
+        setSuccess(orderDoc.id);
+        clearCart();
     }
 
     const [success, setSuccess] = useState()
@@ -71,7 +76,6 @@ const Cart = () => {
     const finishOrder = () => {
         navigate('/')
     }
-
 
     return(
         <Container className='checkout-container '>
@@ -117,6 +121,7 @@ const Cart = () => {
                         </div>
                     )
                 })}
+
                 <div className="cart-footer">
                     <p className="total-cart-price">Total ${totalCartPrice()}</p>
                 </div>
@@ -135,8 +140,8 @@ const Cart = () => {
                         <p>La orden fue generada con éxito</p>
                         <p>Número de orden: {success}</p>                        
                         <button onClick={finishOrder} className='btn-submit'>ACEPTAR</button>
-                    </div>
-                ) : (
+                    </div>) :
+                    (
                     <form className="form-contact" onSubmit={handleSubmit(endPurchase)}>
                         <TextField 
                             id="outlined-basic"
@@ -151,10 +156,10 @@ const Cart = () => {
                                 pattern: /^[A-Za-z]+ [A-Za-z]+$/
                             })}
                             onChange={handleChange}
-                            />
-                        {errors.name?.type === 'required' && 'Este campo es requerido'}
-                        {errors.name?.type === 'minLength' && 'Ingreso mínimo de 5 caracteres'}
-                        {errors.name?.type === 'pattern' && 'Solo se pueden ingresar letras'}
+                        />
+                            {errors.name?.type === 'required' && 'Este campo es requerido'}
+                            {errors.name?.type === 'minLength' && 'Ingreso mínimo de 5 caracteres'}
+                            {errors.name?.type === 'pattern' && 'Formato requerido nombre apellido'}
 
                         <TextField 
                             id="outlined-basic"                           
@@ -191,8 +196,8 @@ const Cart = () => {
                         
                         <button type="submit" className='btn-submit'>ENVIAR</button>
                     </form>
-                )}
-                
+                    )
+                }
             </Modal>            
         </Container>
     )

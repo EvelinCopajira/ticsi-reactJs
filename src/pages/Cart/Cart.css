@@ -8,6 +8,7 @@ h4 {
     width: 15%;
     font-size: 18px;
 }
+
 .cart-table-content {
     display: flex;
     align-items: center;
@@ -40,15 +41,9 @@ h4 {
     font-weight: 900;
 }
 
-.btn {
+.btn, .btn-submit {
     background: #e4ac59 !important;
-    letter-spacing: auto;
-    font-family: 'Roboto Condensed', sans-serif !important;
-    
-}
-
-h2 {
-    font-family: 'Abril Fatface', cursive !important;
+    font-family: 'Roboto Condensed', sans-serif !important;    
 }
 
 .form-contact {
@@ -64,14 +59,11 @@ h2 {
 
 .MuiOutlinedInput-notchedOutline  {
     border-color: #e4ac59 !important;
-
 }
+
 .btn-submit {
     color: white;
     border: none;
-    background: #e4ac59 !important;
-    letter-spacing: auto;
-    font-family: 'Roboto Condensed', sans-serif !important;
     padding: 3%;
     margin-top: 5%;
 }

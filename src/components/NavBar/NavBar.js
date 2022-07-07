@@ -1,31 +1,26 @@
 //import CSS
 import './NavBar.css';
 
-//import componente: CartWidget en NavBar
+//import component
 import CartWidget from '../CartWidget/CartWidget';
-
 import ThemeSwitch from './ThemeSwitch';
 
-//import mui styles
+//import MUI
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
-//import react-router-dom
-import { Link } from 'react-router-dom';
-
 //import react
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import * as React from 'react';
 
 //hook para utilizar la informacion que tenemos en el context 
 import { useContext } from 'react';
 
 //el ThemeContext me permite acceder a la info que paso por value al provider
 import { ThemeContext } from '../../context/ThemeContext';
-
 
 const NavBar = () => {
     //genero una constante y le paso el context desde el que traigo la info
@@ -40,20 +35,20 @@ const NavBar = () => {
         setAnchorEl(null);
     };
 
-    const categories = ["kokedamas", "cactus"];    
+    const categories = ["kokedamas", "cactus"];  
+
     return (
-        //retorna un JSX (HTML)
         <AppBar position="fixed" className={`header-success ${darkTheme === true ? 'dark-mode' : 'light-mode'} `}>
             <Toolbar className='toolbar-nav'>
                 <div className='container-logo'>
                     <Link to={'/'}>
-                        <img src='/ticsi-logo.png' alt='imagen-logo'></img>
+                        <img src='/ticsi-logo.png' alt='imagen-logo' />
                     </Link>
                 </div>
                 <ul className='navbar-list'>
                     <li>
                         <Button variant='text' color='inherit'>
-                            <Link to='/' className='link-menu'>INICIO</Link>
+                            <Link to={'/'} className='link-menu'>INICIO</Link>
                         </Button>
                     </li>
                     <li>
@@ -68,9 +63,9 @@ const NavBar = () => {
                             variant='text' 
                             className='link-menu'
                         >
-                            <Link to='/products' className='link-menu'>PRODUCTOS</Link>
-                            
+                        <Link to='/products' className='link-menu'>PRODUCTOS</Link>                            
                         </Button>
+
                         <Menu
                             id="basic-menu"
                             anchorEl={anchorEl}
@@ -79,20 +74,15 @@ const NavBar = () => {
                             MenuListProps={{
                             'aria-labelledby': 'basic-button',
                             }}
-                        >
+                            >
                             {categories.map((cat) => {
                                 return(<MenuItem onClick={handleClose}><Link to={`/items/${cat}`} className='link-sub-menu'>{cat}</Link></MenuItem>) 
                             })}
                         </Menu>
                     </li>
                     <li>
-                        <Button variant='text' color='inherit'>
-                            <Link to='/contact' className='link-menu'>CONTACTO</Link>  
-                        </Button>
-                    </li>
-                    <li>
                         <Button variant='text' color='inherit' className='link-menu'>
-                            CUIDADOS Y TIPS  
+                            <Link to='/cuidadostips' className='link-menu'>CUIDADOS Y TIPS</Link>  
                         </Button>
                     </li>
                 </ul>
@@ -100,9 +90,7 @@ const NavBar = () => {
             <CartWidget />
             </Toolbar>  
         </AppBar>
-
     )
 }
 
-//exporto el componente a App.js - solo puede haber un "export default" por archivo
-export default NavBar
+export default NavBar;

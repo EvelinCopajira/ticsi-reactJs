@@ -1,10 +1,11 @@
-//import ItemList
+//import component
 import ItemList from '../ItemList/ItemList';
 
+//import react
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-//import firestore
+//import firebase
 import {collection, getDocs} from 'firebase/firestore';
 import dataBase from '../../utils/firebaseConfig';  
 
@@ -23,7 +24,8 @@ const ItemListContainer = () => {
             console.log('Cath fallo la llamada: ', error);
         })        
         .finally( () => {            
-        })        
+        })
+    // eslint-disable-next-line
     }, [category])   
 
     //firebase - fn async para guardar el resultado de getDocs. Guarda los productos cargados en firebase en productSnapshot
@@ -44,12 +46,12 @@ const ItemListContainer = () => {
     }
 
     const categories = () => category ? `${category}` : "PRODUCTOS"
+
     return (
         <div>
-            <ItemList title={`${categories()}`} products={products}></ItemList>
+            <ItemList title={`${categories()}`} products={products} />
         </div>
     )
-
 }
 
 export default ItemListContainer;

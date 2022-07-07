@@ -9,7 +9,7 @@
     margin-top: auto;
 }
 
-p {
+.social-container p, .contact-container p {
     font-size: 14px;
     margin: 0;
     font-weight: 100;
@@ -17,7 +17,6 @@ p {
 
 .instagram a, .place a, .mail a {
     margin-top: 5%;
-    text-decoration: none;
     display: flex;
     align-items: center;
     color: white;

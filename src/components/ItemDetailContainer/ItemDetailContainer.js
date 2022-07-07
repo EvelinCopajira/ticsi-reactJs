@@ -1,10 +1,8 @@
-//import componente: ItemDetail.js
+//import component
 import ItemDetail from "../ItemDetail/ItemDetail";
 
 //import react
 import { useState, useEffect } from "react";
-
-//import react-router-dom
 import { useParams } from "react-router-dom";
 
 //import firebase
@@ -13,7 +11,6 @@ import dataBase from "../../utils/firebaseConfig";
 
 const ItemDetailContainer = () => {    
     const {id} = useParams();
-
     const [product, setProduct] = useState({}); 
         
     //useEffect para filtrar el producto por el id  clickeado - .find
@@ -25,6 +22,7 @@ const ItemDetailContainer = () => {
 // eslint-disable-next-line
     },[id]) 
 
+    //traigo los productos de firebase
     const getProduct = async() => {
         const docRef = doc(dataBase, 'productsTicsi', id);
         const docSnaptshop = await getDoc(docRef);

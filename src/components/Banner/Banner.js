@@ -1,8 +1,10 @@
-import * as React from 'react';
+//import MUI
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
+
+//import react
 import { Link } from 'react-router-dom';
 
 

@@ -1,4 +1,7 @@
+//import CSS
 import './Footer.css';
+
+//import MUI
 import InstagramIcon from '@mui/icons-material/Instagram';
 import EmailIcon from '@mui/icons-material/Email';
 import PlaceIcon from '@mui/icons-material/Place';

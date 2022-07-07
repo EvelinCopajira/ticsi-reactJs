@@ -1,0 +1,16 @@
+.cuidados-tips-container h2 {
+    margin: 3%;
+}
+
+.subtitle {
+    font-family: 'Abril Fatface', cursive !important;
+    font-size: 35px;
+    text-align: initial;
+    margin-left: 5%;
+}
+
+.cuidados-tips-container p {
+    text-align: justify;
+    margin-top: 1%;
+    margin-bottom: 3%;
+}

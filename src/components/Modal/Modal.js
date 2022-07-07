@@ -1,3 +1,4 @@
+//import MUI
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
@@ -13,4 +14,4 @@ const Modal = ({handleClose, open, children, title}) => {
     )
 }
 
-export default Modal
+export default Modal;

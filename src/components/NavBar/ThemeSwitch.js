@@ -1,9 +1,12 @@
+//import react
 import { useContext } from "react";
 
-import * as React from 'react';
+//import MUI
 import { styled } from '@mui/material/styles';
 import Switch from '@mui/material/Switch';
 import { FormControlLabel } from "@mui/material";
+
+//import context
 import { ThemeContext } from "../../context/ThemeContext";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
@@ -54,14 +57,15 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   }));
 
 const ThemeSwitch = () => {
-    //llamo al useContext
-    const {handleTheme} = useContext(ThemeContext);
+  //llamo al useContext
+  const {handleTheme} = useContext(ThemeContext);
 
-    return(
-        <FormControlLabel
-          control={<MaterialUISwitch sx={{ m: 1 }} onChange={handleTheme}/>}
-          label=""
-        />    )
+  return(
+    <FormControlLabel
+      control={<MaterialUISwitch sx={{ m: 1 }} onChange={handleTheme}/>}
+      label=""
+    />    
+  )
 }
 
-export default ThemeSwitch
+export default ThemeSwitch;

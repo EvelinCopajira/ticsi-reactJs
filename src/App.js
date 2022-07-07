@@ -1,13 +1,14 @@
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
+import Footer from './components/Footer/Footer';
+
 import Home from './pages/Home/Home';
-import Contact from './pages/Contact';
+import CuidadosTips from './pages/CuidadosTips/CuidadosTips';
 import Products from './pages/Products';
 import NotFound from './pages/NotFound';
 import Detail from './pages/Detail';
 import ProductsList from './pages/ProductsList';
 import Cart from './pages/Cart/Cart';
-import Footer from './components/Footer/Footer';
 
 //import react-router-dom
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
@@ -25,13 +26,13 @@ function App() {
           <BrowserRouter>
             <NavBar />
             <Routes>
-              <Route path='/' element={<Home />}></Route>
-              <Route path='/products' element={<Products />}></Route>
-              <Route path='/items/:category' element={<ProductsList/>}></Route>
-              <Route path='/item/:id' element={<Detail />}></Route>
-              <Route path='/contact' element={<Contact />}></Route>
-              <Route path='*' element={<NotFound />}></Route>
-              <Route path='/cart' element= {<Cart />}></Route>
+              <Route path='/' element={<Home />} />
+              <Route path='/products' element={<Products />} />
+              <Route path='/items/:category' element={<ProductsList/>} />
+              <Route path='/item/:id' element={<Detail />} />
+              <Route path='/cuidadostips' element={<CuidadosTips />} />
+              <Route path='*' element={<NotFound />} />
+              <Route path='/cart' element= {<Cart />} />
             </Routes>
             <Footer />
           </BrowserRouter>

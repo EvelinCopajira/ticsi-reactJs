@@ -1,15 +1,10 @@
 .count-item {
     display: flex;
-    width: 100%;
     justify-content: center;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     align-items: center;
     margin: 3%;
-}
-
-.btn-card {
-    width: auto;
 }
 
 .btn {

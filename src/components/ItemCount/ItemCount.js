@@ -1,19 +1,21 @@
 //import CSS
 import './ItemCount.css';
 
-//import mui styles
+//import MUI
 import { Button } from '@mui/material';
 
-//import context
+//import react
 import { useContext } from 'react';
+
+//import context
 import { CartContext } from '../../context/CartContext';
 
 //contador, valida con el stock y actualiza con botones +/-. Recibe por props la cantidad y actualización de cantidad desde ItemDetail
 const ItemCount = ({product, quantity, refreshQuantity, setShowButton}) => {
+    //funciones que quiero importar y de que contextos
+    const {addProductToCart, cartListItems} = useContext(CartContext);
 
-       //traigo el contexto
-       const {addProductToCart, cartListItems} = useContext(CartContext);
-
+    //traigo totalQuantity para que descuente las unidades que pongo desde item y las que pongo desde detail para que no superen el stock total
     const stock = product.stock;
     const productInCart = cartListItems.find(cartItem => cartItem.id === product.id)
     const totalQuantity = (productInCart === undefined ? 0 : productInCart.quantity) + quantity;
@@ -30,7 +32,6 @@ const ItemCount = ({product, quantity, refreshQuantity, setShowButton}) => {
         return setShowButton(true)
     };
     const addProduct = () => {
-        console.log(quantity)
         return addProductToCart(product, quantity)
     } 
 
@@ -40,8 +41,6 @@ const ItemCount = ({product, quantity, refreshQuantity, setShowButton}) => {
         addProduct()
     }
 
-    
-    
     return (
         <>
         <div className='count-item'>
