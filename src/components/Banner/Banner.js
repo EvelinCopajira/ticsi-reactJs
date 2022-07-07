@@ -11,17 +11,17 @@ import { Link } from 'react-router-dom';
 const images = [
   {
     url: 'https://espores.org/wp-content/uploads/28133206389_761890422a_o.jpg',
-    title: 'Kokedamas',
+    title: 'PRODUCTOS',
     width: '33%',
   },
   {
     url: 'https://media.admagazine.com/photos/618a619b2f01962557ac401d/16:9/w_4656,h_2619,c_limit/85094.jpg',
-    title: 'Cactus',
+    title: 'PRODUCTOS',
     width: '33%',
   },
   {
     url:'http://d3ugyf2ht6aenh.cloudfront.net/stores/001/288/568/products/dsc_00751-e69c025aa4d263a08c16340829793012-640-0.jpg',
-    title: 'Kits',
+    title: 'PRODUCTOS',
     width: '33%',
   },
 ];
